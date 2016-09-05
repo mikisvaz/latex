@@ -1,0 +1,2 @@
+echo 'copying paper.sp into paper.okspell'
+cp paper.sp paper.okspell

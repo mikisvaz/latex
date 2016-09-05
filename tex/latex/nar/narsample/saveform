@@ -1,0 +1,13 @@
+mkdir old/file.version
+
+cp file old/file.version
+
+# some other files one might want to save:
+# cp       note?.tex old/file.version
+# cp definitions.tex old/file.version
+# cp      letter.tex old/file.version
+
+cd old/file.version
+compress *
+
+echo saved file in old/file.version

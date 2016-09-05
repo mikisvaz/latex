@@ -1,0 +1,12 @@
+#!/bin/tcsh -f
+#(ie run the tshell on this but don't read the .cshrc or .tcshrc)
+
+echo version = 1.00 of gopublic 2005 Jan 25
+# 2005 Jan 25, 1.00: origin 
+
+set target = ~toms/public_html/latex.example/
+
+cp latexdemo.tex $target
+
+cd $target
+mk

@@ -1,0 +1,1 @@
+../../tex/latex/bmc/bmc_article.bst

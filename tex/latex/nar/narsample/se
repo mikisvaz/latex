@@ -1,0 +1,7 @@
+#!/bin/csh -f
+#(ie run the cshell on this but don't read the .cshrc)
+#
+# look at the paper with the previewer
+
+see paper
+gv paper.ps

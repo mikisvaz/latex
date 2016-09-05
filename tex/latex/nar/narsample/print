@@ -1,0 +1,5 @@
+#!/bin/csh -f
+#(ie run the cshell on this but don't read the .cshrc)
+
+# print the paper
+p paper.ps

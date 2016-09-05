@@ -1,0 +1,1 @@
+../../tex/latex/natbib/plainnat.bst

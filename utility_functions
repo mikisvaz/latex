@@ -1,0 +1,161 @@
+function get_bibtex() {
+    local citation=$1
+    local bibrepo=$2
+
+    citation=`echo $citation | sed 's/\//./g'`
+
+    if [ "x$bibrepo" == "x" ]; then
+        cat $HOME/latex/bibtex/bib/*.bib | sed -n "/@.*{$citation,/,/^}/ p" 
+    else
+        cat "$bibrepo" |  sed -n "/@.*{$citation,/,/^}/ p"
+    fi
+}
+
+function get_cites(){
+    local citefile=$1
+    local bibrepo=$2
+
+    for cite in `cat $citefile`; do
+        get_bibtex $cite "$bibrepo"
+    done
+}
+
+function get_crossrefs(){
+    local bibfile=$1
+    local bibrepo=$2
+
+    for cross in `cat $bibfile |grep crossref |sed 's/.*{\(.*\)}.*/\1/'`; do
+        echo "$cross"
+        get_bibtex "$cross" "$bibrepo"
+    done
+}
+
+function make_cite_lists() {
+    local name=$1
+
+    local citefile="$(dirname $name)/cites.cite_list"
+    cat *.tex |ruby -ne 'puts $_.scan(/\\(no)?cite[a-z]*\{(.*?)\}/).flatten.join(",").gsub(",","\n")'|sort |uniq|grep "." > $citefile
+}
+
+function make_multibib_cites(){
+    local name=$1
+    local bibrepo=$2
+
+    if [ "x$name" != "x" ];then
+        dir=$(dirname $1)
+    else
+        dir="."
+    fi
+
+    for citefile in $dir/*.cite_list; do
+        name=`echo $citefile | sed s/.cite_list$//`
+        get_cites "$citefile" "$bibrepo" > "$name.bib"
+        get_crossrefs "$name.bib" "$bibrepo"  > "$name.cross_refs"
+        cat "$name.cross_refs" >> "$name.bib"
+    done
+
+}
+
+function make_clean_index(){
+    for f in *.idx; do 
+        cat $f |sed 's/{\s*/{/;s/\s*}/}/g;s/\s\s*/ /g'|sort|uniq > foo; 
+        mv foo $f;
+        makeindex $f;
+        cp $f $f.save;
+    done
+}
+
+
+function build_bbl(){
+    local citation=$1
+    local bibrepo=$2
+
+    local bbl_dir='/tmp/build_bbl'
+    local bbl_prefix="$bbl_dir/$citation"
+
+    mkdir -p $bbl_dir
+
+    cd $bbl_dir
+
+    cat > $citation.tex <<EOF
+\\documentclass[11pt]{article}
+\\usepackage{natbib}
+\\begin{document}
+  \\cite{$citation}
+  \\bibliographystyle{amsplain}
+  \\bibliography{cites.bib}
+\\end{document}
+EOF
+  
+  
+    make_cite_lists "$bbl_prefix.tex"
+    make_multibib_cites "$bbl_prefix.tex" "$bibrepo"
+    latex "$citation.tex"
+    bibtex "$citation"
+    cd -
+
+    cat $bbl_prefix.bbl | grep -v thebibliography |ruby -e "puts  STDIN.read.sub(/.*\{$citation\}/m,'')"|grep "." > $citation.bbl
+
+    rm $bbl_prefix.* $bbl_dir/cites.*
+}
+
+function html_citation(){
+
+  citation=$1
+  bibrepo=$2
+  
+  source `dirname $0`/../lib/latex_functions.sh
+  
+  build_bbl $citation $bibrepo
+  
+  cat > citation.tex <<EOF
+\\documentclass[11pt]{article}
+\\begin{document}
+  
+EOF
+  
+  cat $citation.bbl >> citation.tex
+  
+  cat >> citation.tex <<EOF
+\\end{document}
+EOF
+  
+  latex2html citation.tex
+  
+  cat citation/index.html |ruby -e 'STDIN.read.match(/<P>(.*<BR>)<HR>\s*<!--Table of Child-Links-->\s*/m); puts $1' > $citation.html
+  
+  rm -Rf citation.* citation/
+  
+  echo $citation.html
+  rm $citation.html
+}
+
+function latex-clean(){
+for tex in `find . -name "*.tex"`; do
+    NAME=`echo $tex |sed s/.tex$//`
+
+    echo "Cleaning tex: $tex"
+    for ext in log dvi blg idx ind ilg aux bbl cite_list cross_refs out toc; do
+        FILE="$NAME.$ext"
+        if [ -f "$FILE" ]; then
+            rm "$FILE"
+        fi
+    done
+
+    rm -f cites.cite_list cites.cross_refs
+
+    for file in *.bib; do
+        NAME=`echo $file | sed s/.bib$//`
+        echo "Cleaning bib files for $NAME"
+        for ext in aux bbl blg; do
+            FILE="$NAME.$ext"
+            if [ -f "$FILE" ]; then
+                rm "$FILE"
+            fi
+        done
+    done
+done
+
+}
+
+# vim: ft=sh

@@ -1,0 +1,3153 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: lister 10.07
+%%Creator: Tom Schneider
+%%BoundingBox:    92     7   331   741
+%%DocumentFonts:
+%%EndComments
+/defaultllx   7.1 def
+/defaultlly   7.0 def
+/defaulturx 588.1 def
+/defaultury 785.0 def
+/llx  92.1 def
+/lly   7.0 def
+/urx 331.1 def
+/ury 740.7 def
+/cmfactor 72 2.54 div def % defines points -> centimeters
+/cm { cmfactor mul} def % defines centimeters
+/edgecontrol (p) def
+/edgeleft   0.00000 cm def
+/edgeright -1.00000 cm def
+/edgelow   -1.80000 cm def
+/edgehigh   0.00000 cm def
+
+% based on typefaces program from page 40 of the Blue book
+
+% variables
+/fontsize 10 def
+/thefont /Courier-Bold def
+% set the font
+thefont findfont fontsize scalefont setfont
+
+/lineseparation fontsize def
+/charwidth % rightward movement between characters
+   0 0 moveto
+   currentpoint pop ( ) show currentpoint pop exch sub
+def
+% (charwidth = ) = charwidth =
+% check that this value is the same as the default value
+% used in the lister program
+/defcharacterratio  0.60000 def
+/characterratio charwidth fontsize div def
+/tolerateratio    10000 def % accuracy to compare the above two
+   characterratio tolerateratio mul round % dup =
+defcharacterratio tolerateratio mul round % dup =
+ne
+{
+ (To function properly, this program needs the width to) =
+ (height ratio of the characters.  PostScript measures this:) =
+ (charwidth/fontsize= ) = charwidth fontsize div =
+ (but defcharacterratio = ) = defcharacterratio =
+ (The program will use the measured ratio) = flush
+ /defcharacterratio characterratio def
+} if
+/charwidth2m charwidth 2 mul def
+/charwidth2d charwidth 2 div def
+/charwidth2mneg charwidth2m neg def
+/charwidth2dneg charwidth2d neg def
+
+/deltaXcm    0.00000 cm def
+/deltaYcm   -3.00000 cm def
+/scaleimage    1.00000 def
+/n { % start new line
+/currenty currenty lineseparation sub def
+0 currenty moveto} def
+/s {show} def
+/sn {s n} def
+
+/startpage{
+llx edgehigh add lly edgeleft add translate
+90 rotate
+scaleimage dup scale
+/currenty 0 def
+0 0 moveto
+n % move one line onto the page!
+} def
+
+/colordictionary 27 dict def
+colordictionary (A) {  0.1821 1   0.1819 setrgbcolor} put
+colordictionary (a) {  0.1821 1   0.1819 setrgbcolor} put
+colordictionary (C) {0   0.9372 1 setrgbcolor} put
+colordictionary (c) {0   0.9372 1 setrgbcolor} put
+colordictionary (T) {1 0 0 setrgbcolor} put
+colordictionary (t) {1 0 0 setrgbcolor} put
+colordictionary (U) {1 0 0 setrgbcolor} put
+colordictionary (u) {1 0 0 setrgbcolor} put
+colordictionary (G) {1   0.7000 0 setrgbcolor} put
+colordictionary (g) {1   0.7000 0 setrgbcolor} put
+colordictionary (.) {0 0 0 setrgbcolor} put
+colordictionary (D) {0 0 0 setrgbcolor} put
+colordictionary (E) {0 0 0 setrgbcolor} put
+colordictionary (F) {0 0 0 setrgbcolor} put
+colordictionary (H) {0 0 0 setrgbcolor} put
+colordictionary (I) {0 0 0 setrgbcolor} put
+colordictionary (K) {0 0 0 setrgbcolor} put
+colordictionary (L) {0 0 0 setrgbcolor} put
+colordictionary (M) {0 0 0 setrgbcolor} put
+colordictionary (N) {0 0 0 setrgbcolor} put
+colordictionary (P) {0 0 0 setrgbcolor} put
+colordictionary (Q) {0 0 0 setrgbcolor} put
+colordictionary (R) {0 0 0 setrgbcolor} put
+colordictionary (S) {0 0 0 setrgbcolor} put
+colordictionary (V) {0 0 0 setrgbcolor} put
+colordictionary (W) {0 0 0 setrgbcolor} put
+colordictionary (Y) {0 0 0 setrgbcolor} put
+/. {colordictionary (.) get exec (.) s} def
+/A {colordictionary (A) get exec (A) s} def
+/C {colordictionary (C) get exec (C) s} def
+/D {colordictionary (D) get exec (D) s} def
+/E {colordictionary (E) get exec (E) s} def
+/F {colordictionary (F) get exec (F) s} def
+/G {colordictionary (G) get exec (G) s} def
+/H {colordictionary (H) get exec (H) s} def
+/I {colordictionary (I) get exec (I) s} def
+/K {colordictionary (K) get exec (K) s} def
+/L {colordictionary (L) get exec (L) s} def
+/M {colordictionary (M) get exec (M) s} def
+/N {colordictionary (N) get exec (N) s} def
+/P {colordictionary (P) get exec (P) s} def
+/Q {colordictionary (Q) get exec (Q) s} def
+/R {colordictionary (R) get exec (R) s} def
+/S {colordictionary (S) get exec (S) s} def
+/T {colordictionary (T) get exec (T) s} def
+/V {colordictionary (V) get exec (V) s} def
+/W {colordictionary (W) get exec (W) s} def
+/Y {colordictionary (Y) get exec (Y) s} def
+/a {colordictionary (a) get exec (a) s} def
+/c {colordictionary (c) get exec (c) s} def
+/g {colordictionary (g) get exec (g) s} def
+/t {colordictionary (t) get exec (t) s} def
+/u {colordictionary (u) get exec (u) s} def
+/U {colordictionary (U) get exec (U) s} def
+/amb {1 0 0 setrgbcolor (amb) s} def
+/och {1 0 0 setrgbcolor (och) s} def
+/opa {1 0 0 setrgbcolor (opa) s} def
+/b {0 0 0 setrgbcolor} def
+/e {( ) s} def
+/MB {% number MB -. make Multible Blanks
+ /spaces exch def
+ 1 1 spaces {( ) show} for
+} def
+
+/lowerbound       -3 def % lower bound in bits
+/upperbound        2 def % upper bound in bits
+/figurebottom       -3 def % lower bound of walker in lines (=bits)
+/basesperline 55 def % width of page in bases
+/pagecharacters basesperline 2 mul def % characters across page
+
+/hline { % thewidth hline - ; produce a horizontal line of thewidth
+gsave
+  /thewidth exch def
+  currentpoint newpath moveto b
+  0.5 setlinewidth
+  charwidth thewidth mul 0 rlineto stroke
+grestore
+} def
+
+/str 20 string def
+/hlines { % multiwidth hline - ; produce horizontal lines of multiwidth
+gsave
+  /multiwidth exch def
+  0 lineseparation figurebottom mul rmoveto
+  figurebottom 1 2 {
+    gsave
+      multiwidth 1 gt {
+        -5 charwidth mul 0 rmoveto % move backwards
+        dup 0 lt {(-)} {(+)} ifelse s % capture sign
+        abs str cvs s ( bits ) s % show absolute bits
+      } if
+      multiwidth -1 eq {
+        pop charwidth2mneg 0 rmoveto 2 hline
+      }
+      {multiwidth hline} % draw the line
+      ifelse
+    grestore
+    0 lineseparation rmoveto} for
+grestore
+} def
+/pink     {1   0.2 1   sethsbcolor} def
+/greenish {0.4 0.2 1   sethsbcolor} def
+/purple   {1   0   1   setrgbcolor} def
+/black    {0   0   0   sethsbcolor} def
+/downblack {black} def
+/downpurple {purple} def
+/cmperbit  0.35278 cm def % cm per bit
+/ncharwidth2m charwidth2m neg def % negative of charwidth2m
+/bitspercm 1 cmperbit div def
+/charupper upperbound bitspercm div def % upper bound of characters
+/charlower lowerbound bitspercm div def % lower bound of characters
+/charrange charupper charlower sub def % total height of character box
+
+/makebar { % make a bar
+gsave
+  charwidth2dneg 0 rmoveto
+  currentpoint translate
+  0 charlower moveto
+  charwidth2m 0 rlineto
+  0 charrange rlineto
+  ncharwidth2m 0 rlineto
+  closepath
+  gsave fill grestore
+  clip 0 setgray stroke
+grestore
+} bind def
+
+/makedownbar { % make a bar that only goes down
+gsave
+  charwidth2dneg 0 rmoveto
+  currentpoint translate
+  0 0 moveto
+  0 charlower rlineto
+  charwidth2m 0 rlineto
+  0 charlower neg rlineto
+  closepath
+  gsave fill grestore
+  clip stroke
+grestore
+} bind def
+%/makedownbar { } def % this allows blocking the function
+
+/clipdown { % clip downward drawn characters
+  charwidth2dneg 0 rmoveto
+  currentpoint translate
+  0 0 moveto
+  0 charlower rlineto
+  charwidth2m 0 rlineto
+  0 charlower neg rlineto
+  closepath
+  clip
+  % restore previous location
+  charwidth2dneg neg 0 rmoveto
+  currentpoint translate
+} bind def
+%/clipdown { } def % this allows blocking the function
+
+/circlesymbol { % x y radius circlesymbol - (path)
+newpath 0 360 arc closepath} bind def
+
+/sqrt3 3 sqrt def
+/trianglesymbol { % x y radius trianglesymbol - (path)
+/r exch def
+/sqrt3r sqrt3 r mul def
+translate
+120 rotate
+0 r translate
+-120 rotate
+newpath
+0 0 moveto
+sqrt3r 0 lineto
+-300 rotate
+sqrt3r 0 lineto
+closepath} bind def
+
+/squaresymbol { % x y side squaresymbol - (path)
+/side exch def
+translate
+side 2 div neg dup translate
+newpath
+0 0 moveto
+0 side lineto
+side side lineto
+side 0 lineto
+closepath} bind def
+
+/linesymbol { % x1 y1 x2 y2 linesymbol - (path)
+/y2 exch def
+/x2 exch def
+/y1 exch def
+/x1 exch def
+newpath
+x1 y1 moveto
+x2 y2 lineto
+} bind def
+
+/boxsymbol { % x1 y1 x2 y2 boxsymbol - (path)
+/y2 exch def
+/x2 exch def
+/y1 exch def
+/x1 exch def
+newpath
+x1 y1 moveto
+x2 y1 lineto
+x2 y2 lineto
+x1 y2 lineto
+closepath
+} bind def
+
+
+/mm {e currentpoint translate} def % step 1 character
+/m2 {e e currentpoint translate} def % step 2 characters
+/mh {charwidth2d 0 rmoveto currentpoint translate} def % step half character
+
+
+% define fonts
+/ffss {findfont fontsize scalefont setfont} def
+/FontForStringRegular {thefont           ffss} def
+/FontForStringItalic  {/Times-BoldItalic ffss} def
+/FontForLogo          {/Helvetica-Bold   ffss} def
+/FontForPrime         {/Symbol           ffss} def
+/FontForSymbol        {/Symbol           ffss} def
+
+% make italics possible in quotestrings
+/IT {% TRstring ITstring IT -
+  exch show
+  FontForStringItalic
+  show
+  FontForStringRegular
+} def
+
+% make symbols possible in quotestrings
+/SY {% TRstring SYstring SY -
+  exch show
+  FontForSymbol
+  show
+  FontForStringRegular
+} def
+
+
+/degpercycle 360 def
+ 
+/drawcosine {% amplitude  phase  wavelength  base
+%              xmin ymin xmax ymax step
+%              dashon dashoff dashoffset thickness
+%              cosine -
+% draws a cosine wave with the given parameters:
+% amplitude (points): height of the wave
+% phase (points): starting point of the wave
+% wavelength (points): length from crest to crest
+% base (points): lowest point of the curve
+% xmin ymin xmax ymax (points): region in which to draw
+% step steps for drawing a cosine wave
+% dashon if greater than zero, size of dashes of the wave (points)
+% dashon dashing on interval (points)
+% dashoff dashing off interval (points)
+% dashoffset offset for dashing (points)
+% thickness if greater than zero, thickness of wave (points)
+% use dashon and dashoff as blank and dashoffset as 0 for solid line
+% See PostScrirt Language Reference Manual 2nd ed p. 500 on dash.
+
+  /thickness exch def
+  /dashoffset exch def
+  /dashoff exch def
+  /dashon exch def
+  /step exch def
+  /ymax exch def
+  /xmax exch def
+  /ymin exch def
+  /xmin exch def
+  /base exch def
+  /wavelength exch def
+  /phase exch def
+  /amplitude exch def
+  % fun := amplitude*cos( ((-y-phase)/wavelength)*360) + base
+  /fun {phase sub wavelength div degpercycle mul cos
+           amplitude mul base add} def
+
+  gsave
+    /originallinewidth currentlinewidth def
+    thickness 0 gt {thickness setlinewidth} if
+
+    % Force the curve to fit into the region specified:
+    newpath
+    xmin ymin moveto
+    xmax ymin lineto
+    xmax ymax lineto
+    xmin ymax lineto
+    closepath
+    clip
+
+    newpath
+    xmin dup fun moveto
+    % go to xmin-1 and xmax+1 to make sure we overlap the
+    % next wave if there is one.  The clip above ensures that it
+    % goes no further than requested. 
+    % loop from xmin-1 to xmax+1 by step:
+    xmin 1 sub step xmax 1 add {dup fun lineto} for
+    % turn dash on if dashon is positive
+    dashon 0 gt {[dashon cvi dashoff cvi] dashoffset setdash} if
+    stroke
+
+    originallinewidth setlinewidth
+  grestore
+} bind def
+
+
+/setthelinewidth {1 setlinewidth} def
+setthelinewidth % set to normal linewidth
+
+/charparams { % char charparams => uy ux ly lx
+% takes a single character and returns the coordinates that
+% defines the outer bounds of where the ink goes
+  gsave
+    newpath
+    0 0 moveto
+    % take the character off the stack and use it here:
+    true charpath
+    flattenpath
+    pathbbox % compute bounding box of 1 pt. char => lx ly ux uy
+    % the path is here, but toss it away ...
+  grestore
+  /uy exch def
+  /ux exch def
+  /ly exch def
+  /lx exch def
+} bind def
+
+/dashbox { % xsize ysize dashbox -
+% draw a dashed box of xsize by ysize (in points)
+  /ysize exch def % the y size of the box
+  /xsize exch def % the x size of the box
+  1 setlinewidth
+  gsave
+    0 0 0 setrgbcolor
+    % Define the width of the dashed lines for boxes:
+    newpath
+    0 0 moveto
+    xsize 0 lineto
+    xsize ysize lineto
+    0 ysize lineto
+    0 0 lineto
+    [3] 0 setdash
+    stroke
+  grestore
+  setthelinewidth
+} bind def
+
+/swapxy {% switch the values of xsize and ysize
+  /holdsize xsize def
+  /xsize ysize def
+  /ysize holdsize def
+} bind def
+
+/boxshow { % xsize ysize char charangle down boxshow
+% show the character char with a box around it, sizes in points
+% the character angle can only be -90, 0, +90 or +180
+% NB: negative y size no longer means rotate +180
+% if down is true, the character is drawn down and to the right
+% otherwise, the character is drawn up and to the right
+gsave
+  /down exch def % draw character below or above line
+  /charangle exch def % angle to rotate the character
+  /tc exch def % define the character
+  /ysize exch abs def % the y size of the character
+  /xsize exch abs def % the x size of the character
+  /xmulfactor 1 def /ymulfactor 1 def
+  currentpoint translate
+
+  charangle 180 eq {
+    down {0 ysize neg translate} if
+    xsize ysize translate
+    180 rotate
+  } if
+  charangle 90 eq {
+    down {0 ysize neg translate} if
+    xsize 0 translate
+    90 rotate
+    swapxy
+  } if
+  charangle -90 eq {
+    down not {0 ysize translate} if
+    -90 rotate
+    swapxy
+  } if
+
+  xsize 0 ne  ysize 0 ne  and {
+    showingbox {xsize ysize dashbox} if
+    2 {
+      gsave
+      xmulfactor ymulfactor scale
+      tc charparams
+      grestore
+
+      ysize % desired size of character in points
+      uy ly sub % height of character in points
+      dup 0.0 ne {
+        div % factor by which to scale up the character
+        /ymulfactor exch def
+      } % end if
+      {pop pop}
+      ifelse
+
+      xsize % desired size of character in points
+      ux lx sub % width of character in points
+      dup 0.0 ne {
+        div % factor by which to scale up the character
+        /xmulfactor exch def
+      } % end if
+      {pop pop}
+      ifelse
+    } repeat
+
+    % Adjust horizontal position if the symbol is an I
+    tc (I) eq {charwidth 2 div % half of requested character width
+               ux lx sub 2 div % half of the actual character
+                  sub      0 translate} if
+    % Avoid x scaling for I
+    tc (I) eq {/xmulfactor 1 def} if
+
+    /xmove xmulfactor lx mul neg def
+    /ymove ymulfactor ly mul neg def
+
+    newpath
+    xmove ymove moveto
+    xmulfactor ymulfactor scale
+
+    tc show
+  } if
+grestore
+} bind def
+
+/showingbox false def
+
+/wc {% wcheight wchar wcangle wc; write walker character
+/wcangle exch def
+/wchar exch def
+/wcheight exch lineseparation mul def
+/wcdown wcheight 0 lt def
+gsave
+ charwidth2dneg 0 rmoveto
+ colordictionary wchar get exec
+ charwidth2m  wcheight wchar wcangle wcdown boxshow
+grestore
+charwidth 0 rmoveto
+} bind def
+
+/stopsign {% make a stopsign
+gsave
+ currentpoint translate
+ charwidth2d dup scale
+ 0 0 moveto
+ 1 0 lineto
+ 2 1 lineto
+ 2 2 lineto
+ 1 3 lineto
+ 0 3 lineto
+-1 2 lineto
+-1 1 lineto
+ 0 0 lineto
+ closepath
+ gsave
+  1 0 0 setrgbcolor
+  fill
+ grestore
+ gsave
+  0 setgray
+  0.4 setlinewidth
+  clip
+  stroke
+ grestore
+grestore
+} def
+
+
+% begin user marks definitions
+
+% define error message that will show up if the user forgets
+% to use this file
+/You_need_a_marks.arrow_definition {} def
+
+% define font size as a unit of measure:
+/fs {fontsize mul} def
+
+% Define an arrow
+% Source: page 141 of the PostScript Cookbook
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+/arrow
+{ arrowdict begin
+  /headlength exch def
+  /halfheadthickness exch 2 div def
+  /halfthickness exch 2 div def
+  /tipy exch def /tipx exch def
+  /taily exch def /tailx exch def
+  /dx tipx tailx sub def
+  /dy tipy taily sub def
+  /arrowlength dx dx mul dy dy mul add sqrt def
+  /angle dy dx atan def
+  /base arrowlength headlength sub def
+  /savematrix mtrx currentmatrix def
+  tailx taily translate
+  angle rotate
+  0 halfthickness neg moveto
+  base halfthickness neg lineto
+  base halfheadthickness neg lineto
+  arrowlength 0 lineto
+  base halfheadthickness lineto
+  base halfthickness lineto
+  0 halfthickness lineto
+  closepath
+  savematrix setmatrix
+  end
+} def
+
+% Define a worra, the end of an arrow
+% Source: page 141 of the PostScript Cookbook
+/worradict 14 dict def
+worradict begin
+ /mtrx matrix def
+end
+/worra
+{ worradict begin
+  /headlength exch def
+  /halfheadthickness exch 2 div def
+  /halfthickness exch 2 div def
+  /tipy exch def /tipx exch def
+  /taily exch def /tailx exch def
+  /dx tipx tailx sub def
+  /dy tipy taily sub def
+  /worralength dx dx mul dy dy mul add sqrt def
+  /angle dy dx atan def
+  /base worralength headlength sub def
+  /savematrix mtrx currentmatrix def
+  tailx taily translate
+  angle rotate
+% 0 halfthickness neg moveto
+% base halfthickness neg lineto
+% base halfheadthickness neg lineto
+% worralength 0 lineto
+% base halfheadthickness lineto
+% base halfthickness lineto
+% 0 halfthickness lineto
+/h2 headlength 2 div def
+/h3 headlength 3 div def
+base 0 moveto
+base h3 neg add halfheadthickness neg lineto
+base 0  add     halfheadthickness neg lineto
+base h3 add     0 lineto
+base 0  add     halfheadthickness     lineto
+base h3 neg add halfheadthickness     lineto
+base 0  add 0 lineto
+% now do a rectangle:
+base 0  add halfthickness neg lineto
+base h2 add halfthickness neg lineto
+base h2 add halfthickness     lineto
+base 0  add halfthickness     lineto
+  closepath
+%grestore
+  savematrix setmatrix
+  end
+} def
+
+/edgebox{
+% Define an edgebox, a box with only some edges drawn
+% input parameters:
+% {fillcolor} {edgecolor}
+% edgeboxlength edgeboxheight
+% bottomside rightside topside leftside
+% 
+% edgecolors define the red, green and blue components of the edge
+% fillcolors define the filling color
+% box length is the x axis length
+% box height is the y axis length
+% The four sides are booleans that determine which side edges are drawn
+  /leftside      exch def
+  /topside       exch def
+  /rightside     exch def
+  /bottomside    exch def
+  /edgeboxheight exch def
+  /edgeboxlength exch def
+  /edgecolor     exch def
+  /fillcolor     exch def
+/segment {
+/point2y exch def
+/point2x exch def
+/point1y exch def
+/point1x exch def
+/doside exch def
+doside {
+  didside not
+  {point1x point1y moveto} if
+  point2x point2y
+  lineto
+  /didside true def
+}
+{ /didside false def }
+ifelse
+} def
+gsave
+  /x edgeboxlength def
+  /y edgeboxheight def
+  fillcolor
+  0 0 moveto
+  x 0 lineto
+  x y lineto
+  0 y lineto
+  0 0 lineto
+  closepath
+  gsave % fill but keep the path
+    fill
+  grestore
+  gsave
+    edgecolor
+    newpath
+    0 0 moveto % lastpoint
+    /didside true def
+    bottomside 0 0 x 0 segment
+     rightside x 0 x y segment
+       topside x y 0 y segment
+      leftside 0 y 0 0 segment
+    bottomside 0 0 x 0 segment
+    % repeat bottomside instead of doing a closepath
+    % since the closepath may cut a diagonal!
+    0 setlinejoin
+    stroke
+  grestore
+grestore
+} def
+
+/makeanybox{
+% make any kind of edged box AROUND the current point
+  /theedgecolor exch def
+  /thefillcolor exch def
+  /shiftbase exch def
+  /heady exch def
+  /headx exch def
+  /taily exch def
+  /tailx exch def
+    tailx shiftbase
+    % redefine boxes AROUND current point
+    0.5 sub
+          charwidth mul 2 mul add
+    taily
+        moveto
+    currentpoint translate
+    {thefillcolor}
+    {theedgecolor}
+    headx tailx sub
+    % redefine boxes AROUND current point
+    charwidth 2 mul add
+    heady taily sub
+} def
+
+/leftbox{
+% draw a filled box with the right side open
+gsave
+ makeanybox
+ true false true true
+ edgebox
+grestore
+} def
+
+/midbox{
+% draw a filled box with both the left and right sides open
+gsave
+ makeanybox
+ true false true false edgebox
+grestore
+} def
+
+/rightbox{
+% draw a filled box with the left side open
+gsave
+ makeanybox
+ true true true false edgebox
+grestore
+} def
+
+/fullbox{
+% draw a filled box with the no sides open
+gsave
+ makeanybox
+ true true true true edgebox
+grestore
+} def
+
+/colorpath {
+% color the path.  If fillfirst is true,
+% fill the path then stroke, otherwise
+% stroke first and then fill.
+% fillfirst gives thicker edges.
+% the fill color is 'bodycolor'.
+% the stroke color is 'strokecolor'.
+{ dofill {bodycolor fill} if}
+{ dostroke {strokecolor stroke} if}
+fillfirst {exch} if
+gsave exec grestore % use the path and restore it
+exec % use up the path forever
+} def
+
+/fixedarrow { % make a fixed position arrow
+% These are put on the stack:
+%    TailX     TailY     HEadX     HeadY     Shift
+%    bases      bits     bases      bits     bases
+% The arrow goes from the point (TailX,TailY)
+% to the point (HeadX,HeadY), and has a thickness of
+% BodyThick around this line segment.
+% on the stack give bases to move the arrow
+% globally defined parameters:
+% BodyThick: thickness of body of arrow
+% HeadWidth: How wide the tip of the arrow is
+% Headlength: How long the tip of the arrow is
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+charwidth mul 2 mul 0 translate
+BodyThick HeadWidth HeadLength
+arrow
+colorpath
+} def
+
+/fixedworra { % make a fixed position worra
+% These are put on the stack:
+%    TailX     TailY     HEadX     HeadY     Shift
+%    bases      bits     bases      bits     bases
+% The worra goes from the point (TailX,TailY)
+% to the point (HeadX,HeadY), and has a thickness of
+% BodyThick around this line segment.
+% on the stack give bases to move the worra
+% globally defined parameters:
+% BodyThick: thickness of body of worra
+% HeadWidth: How wide the tip of the worra is
+% Headlength: How long the tip of the worra is
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+charwidth mul 2 mul 0 translate
+BodyThick HeadWidth HeadLength
+worra
+colorpath
+} def
+
+/fixedrectangle { % make a fixed position rectangle
+% on the stack give bases to move the rectangle
+% globally defined parameters:
+% BodyThick: thickness of body of rectangle
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+% old definition which doesn't work correctly for shifting!!:
+% charwidth mul 2 mul 0 translate
+charwidth mul 0 translate
+%
+BodyThick BodyThick 0
+arrow
+colorpath
+} def
+
+/HTrecompute {
+% recompute the head and tail and stick onto stack
+% so that they run from the corners.
+% Also, define the BodyThick of the arrow
+/shiftbase exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+/BodyThick hy ty sub abs def
+/centery ty hy add 2 div def
+tx
+centery
+hx
+centery
+shiftbase
+} def
+
+/boundarrow { % make an arrow
+% Like fixedarrow but the endpoints are
+% the opposite ends of the arrow
+% so it is easier to position the edges.
+% BodyThick of the arrow is computed from these points
+HTrecompute
+fixedarrow
+} def
+
+/boundrectangle { % make a rectangle
+% Like fixedrectangle but the endpoints are
+% the opposite ends of the rectangle
+% so it is easier to position the edges.
+% BodyThick of the arrow is computed from these points
+HTrecompute
+fixedrectangle
+} def
+
+/wiggle { % tx ty dummy dummy shift wiggle
+% make a wiggle mark upwards from tx, ty.  Ignore the two dummy variables. 
+% shift the wiggle horizontally by the given amount in bases 
+/shiftbase exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+ tx shiftbase fs add -0.25 fs add ty moveto
+%
+% first pass, relative:
+% +0.5 fs  0.5 fs rlineto
+% -0.5 fs  0.5 fs rlineto
+% +0.5 fs  0.5 fs rlineto
+%
+% second pass, absolute:
+% currentpoint translate
+% +0.50 fs  0.5 fs lineto
+% -0.00 fs  1.0 fs lineto
+% +0.50 fs  1.5 fs lineto
+%
+ currentpoint translate
+ +0.50 fs  0.5 fs
+ -0.00 fs  1.0 fs
+ +0.50 fs  1.5 fs
+ curveto
+%
+% 1 0 0 setrgbcolor
+ 3 setlinewidth
+ stroke
+} def
+% U  710680.0  -2.5 0 0 +3.6 wiggle
+
+% standard definitions
+/BodyThick     8.00 fs def
+/HeadWidth    12.00 fs def
+/HeadLength    8.00 fs def
+/bodycolor {limegreen} def
+/strokecolor {blue} def
+/fillfirst true def
+/dostroke true def
+/dofill true def
+1 setlinewidth
+
+% define some convenient colors
+/white {1 1 1 setrgbcolor} def
+/black {0 0 0 setrgbcolor} def
+/red {1 0 0 setrgbcolor} def
+/green {0 1 0 setrgbcolor} def
+/blue {0 0 1 setrgbcolor} def
+/orange {1 0.7 0 setrgbcolor} def
+/yellow {1 1 0 setrgbcolor} def
+/purple {1 0 1 setrgbcolor} def
+% standard pink and greenish from lister
+/pink     {1   0.2 1   sethsbcolor} def
+/greenish {0.4 0.2 1   sethsbcolor} def
+
+/lightblue {0.60 0.1 1.0 sethsbcolor} def
+/lightgreen {0.35 0.1 1.0 sethsbcolor} def
+/lightpurple {0.80 0.1 1.0 sethsbcolor} def
+/lightyellow {0.10 0.1 1.0 sethsbcolor} def
+
+/limegreen {lightgreen} def
+/lightred   {pink} def
+
+% You can change any of the standard definitions
+% fs is the font size vertically
+% charwidth is assumed to exist (it does in makelogo and lister)
+% as the width of the characters horizontally.
+
+/forceforward {% don't do anything so that the next mark position is used
+pop pop pop pop % throw away the coordinates
+} def
+
+% ---------------------------------------------------------------------------
+
+% define a line and arrow based on the zero coordinate
+
+/zeroedinitialize {
+% zeroedlinethick zeroedheadthick zeroedheadlength
+% zeroedshiftdown zeroedbetweenlines zeroedinitialize -
+% initialize variables for:
+% zeroedlinethick    thickness of lines
+% zeroedheadthick    thickness of arrowhead
+% zeroedheadlength   length of arrowhead
+% zeroedshiftdown    initial amount to shift downward
+% zeroedbetweenlines amount to shift downward between lines
+/zeroedbetweenlines exch def
+/zeroedshiftdown    exch def
+/zeroedheadlength   exch def
+/zeroedheadthick    exch def
+/zeroedlinethick    exch def
+/zeroedshiftdowncounter zeroedshiftdown def
+} def
+2 6 8 -1.0 cm -0.20 cm zeroedinitialize  % start out
+/arrowshape {zeroedlinethick zeroedheadthick zeroedheadlength} def
+
+/zeroedline {% 0 0 0 0 xfrom xto zeroedline
+% mark a line at the zero coordinate.
+% all marks are started from base zero.
+% This allows them to be in any order and any size.
+% 
+% first see if there is a (-) or (+) on the line (like zeroedarrow)
+% and remove it if so.  This makes the two compatable.
+dup (-) eq {pop} if
+dup (+) eq {pop} if
+/xto   exch 0.5 add def
+/xfrom exch 0.5 add def
+pop pop pop pop % throw away the coordinate and base positions
+gsave
+  zeroedbetweenlines 0.5 mul setlinewidth
+  xfrom charwidth mul zeroedshiftdowncounter moveto
+  xto   charwidth mul zeroedshiftdowncounter lineto
+  zeroedlinethick setlinewidth
+  stroke
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines add def
+grestore
+} def
+
+/zeroedarrow {% 0 0 0 0 xfrom xto direction zeroedarrow
+% mark an arrow at the zero coordinate.
+% all marks are started from base zero.
+% This allows them to be in any order and any size.
+% the range is xfrom to xto.  The arrow direction is either (+)
+% (to the right) or (-) (to the left).
+% 
+  /direction exch def
+  /xto   exch 0.5 add def
+  /xfrom exch 0.5 add def
+  pop pop pop pop % throw away the coordinate and base positions
+  zeroedbetweenlines 0.5 mul setlinewidth
+%
+  direction  (+) eq
+  { xfrom fs zeroedshiftdowncounter xto   fs zeroedshiftdowncounter }
+  { xto   fs zeroedshiftdowncounter xfrom fs zeroedshiftdowncounter }
+  ifelse
+%
+  arrowshape arrow black fill
+%
+% experimental: show a literal after the end of the arrow.
+% xto fs 
+% zeroedshiftdowncounter zeroedbetweenlines 0.5 mul add
+% moveto 
+% ( something) show 
+%
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines add def
+  zeroedlinethick setlinewidth
+} def
+
+/zeroedname {% 0 0 0 0 atlocation (the string) zeroedname
+% mark a name at the location given relative to the zero coordinate.
+% the vertical coordinate is given by zerowedshiftdowncounter
+% 
+  /thestring  exch def
+  /atlocation exch def
+  pop pop pop pop % throw away the coordinate and base positions
+%
+% direction  (+) eq
+% { xfrom fs zeroedshiftdowncounter xto   fs zeroedshiftdowncounter }
+% { xto   fs zeroedshiftdowncounter xfrom fs zeroedshiftdowncounter }
+% ifelse
+%
+  gsave
+    atlocation fs % zeroedshiftdowncounter
+    zeroedshiftdowncounter zeroedbetweenlines 0.5 mul add
+    moveto 
+    thestring show 
+  grestore
+} def
+
+/unshift{
+% zeroedarrow automatically shifts down; sometimes one doesn't
+% want this.  This little routine counters it.  To use it:
+% U 0 0 0 0  -3.5   +0.5 (+) zeroedarrow unshift % -3 to 0
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines sub def
+} def
+
+% ---------------------------------------------------------------------------
+
+/doubleY {% 0 0 0 0 doubleY
+% Put a double Y just to the right of the current base position,
+% but shift it by the amount shiftY.
+% A double Y is like a captal Y letter joined at its base to the base of
+% an upsidedown capital Y.
+% pop pop pop pop % throw away the coordinate and base positions
+/shiftY exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+gsave
+/earlength {4 div fs} def
+  1.5 setlinewidth
+  shiftY charwidth 2 mul mul  ty moveto
+  gsave -1 earlength -1 earlength rlineto stroke grestore
+  gsave +1 earlength -1 earlength rlineto stroke grestore
+  shiftY charwidth 2 mul mul  hy lineto
+  gsave -1 earlength +1 earlength rlineto stroke grestore
+  gsave +1 earlength +1 earlength rlineto stroke grestore
+  stroke
+grestore
+} def
+
+% ---------------------------------------------------------------------------
+
+/positionedletters {% x y 0 0 morex morey theletters positionedletters
+% Position a set of letters (theletters) at point (x,y), where x
+% is in bases along the sequences (the trigger location for the mark)
+% and y is the vertical position in bits.  The next two parameters
+% are ignored by the mechanism.  In addition, one may move the string
+% of letters by additinal increments of characters horizontally (morex)
+% and in additional increments of bits vertically (morey).
+% This allows one to center a class of letters and place them around
+% the center.
+% The allowed letters are the 4 bases (a,c,g,t) and the amino
+% acids (capital letters)
+% example:
+% U 20 -1.5  0 0  1 0  (t a g c t t) positionedletters
+% Technical Note: This routine is for use with the lister program and depends
+% on the letters being functions that write to the postscript output.
+% For example, sequences in lister are produced by 'a e u e g',
+% where a u and g are routines to draw those letters and e is a space.
+% Therefore this routine will not work with makelogo.
+/theletters exch def
+/morey exch fontsize  mul def
+/morex exch charwidth mul def
+pop pop
+/y exch def
+/x exch def
+gsave
+   x morex add
+   y morey add
+  moveto
+  % the mechanism is to convert the literal string
+  % into an executable set on the stack and then
+  % to execute it.  Letters are defined to write
+  % in the lister code.
+  theletters cvx exec
+grestore
+} def
+
+% end of standard part ------------------------------------------------------
+
+
+/ShiftLettering {
+% use:
+% triggerbase ignored bases bits sfactor letters red green blue ShiftLettering -
+% PostScript definition of the lettering function.
+% - Trigger the mark at triggerbase.
+% - Make lettering at coordinate (bases, bits)
+% - with color as defined by red, green and blue.
+% - sfactor is the scale factor: 1.0 is no change, 2.0 is double ...
+% The second argument is ignored, so the letters can be anywhere relative to the
+% trigger point.
+% Multiple letters can be used.
+% examples:
+% U TRIGGER IGNORED  base   bits  sfactor (letters) R G B ShiftLettering
+% U     1.1   0        0    0     1       (A)       0 0 0 ShiftLettering
+% U   3.00    0      4.5    0     1       (5\302)   0 0 0 ShiftLettering
+% U   3.00    0      4.5    0     1       (5\242)   0 0 0 ShiftLetteringSymbol
+% 5\302 makes a 5' symbol, but \242 in the symbol fonts is sharper (recommended).
+%
+setrgbcolor
+/theletters exch def
+/sfactor exch def
+/y exch def
+%/x exch charwidth2m sub def
+%/x exch def
+/x exch charwidth 2 div sub def
+pop pop % FIRST two values are ignored
+x y moveto  % move to the given coordinates
+gsave
+  sfactor dup scale
+  theletters show
+grestore
+}
+def
+
+/ShiftLetteringItalic {
+% PostScript definition of the lettering function WITH ITALICS
+% See ShiftLettering for use
+FontForStringItalic % standard font switch
+ShiftLettering
+FontForStringRegular % standard font switch
+}
+def
+
+/ShiftLetteringSymbol {
+% PostScript definition of the lettering function WITH SYMBOLs
+% See ShiftLettering for use
+FontForSymbol % standard font switch
+ShiftLettering
+FontForStringRegular % standard font switch
+}
+def
+
+/lettering { % bases1 bits1 bases2 bits2 letters red green blue lettering -
+% PostScript definition of the lettering function
+% make lettering at coordinate (bases1, bits1)
+% with color as defined.
+% (bases2, bits2) are ignored.
+% multiple letters can be used.
+% example:
+%    bases      bits     IGNORED    IGNORED  (letters) lettering
+%
+% U      1.1     -0.50     0          0        (A) 0 0 0 lettering
+setrgbcolor
+/theletters exch def
+pop pop % last two values are ignored
+/y exch def
+/x exch charwidth2m sub def
+x y moveto  % move to the given coordinates
+theletters show
+}
+def
+
+/italiclettering { % bases1 bits1 bases2 bits2 red green blue italiclettering -
+% PostScript definition of the lettering function WITH ITALICS
+% make italic lettering at coordinate (bases1, bits1)
+% with color as defined.
+% (bases2, bits2) are ignored.
+% multiple letters can be used.
+% The routine uses the standard font switches in makelogo and lister
+setrgbcolor
+/theletters exch def
+pop pop % last two values are ignored
+/y exch def
+/x exch charwidth2m sub def
+x y moveto  % move to the given coordinates
+FontForStringItalic % standard font switch
+theletters show
+FontForStringRegular % standard font switch
+}
+def
+
+/scaledlettering {
+% bases1 bits1 bases2 bits2 letters red green blue factor scaledlettering -
+% make lettering at coordinate (bases1, bits1)
+% with color as defined.
+% (bases2, bits2) are ignored.
+% multiple letters can be used.
+% example:
+%    bases      bits     IGNORED    IGNORED  (letters) r g b  factor lettering
+% factor is the factor by which to scale the letters
+%
+% U      1.1     -0.50     0          0        (A) 0 0 0 0.9 lettering
+/factor exch def
+setrgbcolor
+/theletters exch def
+pop pop % last two values are ignored
+/y exch def
+/x exch charwidth2m sub def
+x y moveto  % move to the given coordinates
+gsave
+  factor dup scale
+  theletters show
+grestore
+}
+def
+
+/HeadWidth    15.00 fs def
+/HeadLength   10.00 fs def
+
+/bodycolor {lightblue} def
+
+/bodycolor {yellow} def
+/HeadWidth     1.50 fs def
+/HeadLength    1.50 fs def
+
+/bodycolor {lightyellow} def
+
+%%EndProlog
+%%Page: 1 1
+startpage
+
+% define error message that will show up if the user forgets
+% to use this file
+/You_need_a_marks.arrow_definition {} def
+
+% define font size as a unit of measure:
+/fs {fontsize mul} def
+
+% Define an arrow
+% Source: page 141 of the PostScript Cookbook
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+/arrow
+{ arrowdict begin
+  /headlength exch def
+  /halfheadthickness exch 2 div def
+  /halfthickness exch 2 div def
+  /tipy exch def /tipx exch def
+  /taily exch def /tailx exch def
+  /dx tipx tailx sub def
+  /dy tipy taily sub def
+  /arrowlength dx dx mul dy dy mul add sqrt def
+  /angle dy dx atan def
+  /base arrowlength headlength sub def
+  /savematrix mtrx currentmatrix def
+  tailx taily translate
+  angle rotate
+  0 halfthickness neg moveto
+  base halfthickness neg lineto
+  base halfheadthickness neg lineto
+  arrowlength 0 lineto
+  base halfheadthickness lineto
+  base halfthickness lineto
+  0 halfthickness lineto
+  closepath
+  savematrix setmatrix
+  end
+} def
+
+% Define a worra, the end of an arrow
+% Source: page 141 of the PostScript Cookbook
+/worradict 14 dict def
+worradict begin
+ /mtrx matrix def
+end
+/worra
+{ worradict begin
+  /headlength exch def
+  /halfheadthickness exch 2 div def
+  /halfthickness exch 2 div def
+  /tipy exch def /tipx exch def
+  /taily exch def /tailx exch def
+  /dx tipx tailx sub def
+  /dy tipy taily sub def
+  /worralength dx dx mul dy dy mul add sqrt def
+  /angle dy dx atan def
+  /base worralength headlength sub def
+  /savematrix mtrx currentmatrix def
+  tailx taily translate
+  angle rotate
+% 0 halfthickness neg moveto
+% base halfthickness neg lineto
+% base halfheadthickness neg lineto
+% worralength 0 lineto
+% base halfheadthickness lineto
+% base halfthickness lineto
+% 0 halfthickness lineto
+/h2 headlength 2 div def
+/h3 headlength 3 div def
+base 0 moveto
+base h3 neg add halfheadthickness neg lineto
+base 0  add     halfheadthickness neg lineto
+base h3 add     0 lineto
+base 0  add     halfheadthickness     lineto
+base h3 neg add halfheadthickness     lineto
+base 0  add 0 lineto
+% now do a rectangle:
+base 0  add halfthickness neg lineto
+base h2 add halfthickness neg lineto
+base h2 add halfthickness     lineto
+base 0  add halfthickness     lineto
+  closepath
+%grestore
+  savematrix setmatrix
+  end
+} def
+
+/edgebox{
+% Define an edgebox, a box with only some edges drawn
+% input parameters:
+% {fillcolor} {edgecolor}
+% edgeboxlength edgeboxheight
+% bottomside rightside topside leftside
+% 
+% edgecolors define the red, green and blue components of the edge
+% fillcolors define the filling color
+% box length is the x axis length
+% box height is the y axis length
+% The four sides are booleans that determine which side edges are drawn
+  /leftside      exch def
+  /topside       exch def
+  /rightside     exch def
+  /bottomside    exch def
+  /edgeboxheight exch def
+  /edgeboxlength exch def
+  /edgecolor     exch def
+  /fillcolor     exch def
+/segment {
+/point2y exch def
+/point2x exch def
+/point1y exch def
+/point1x exch def
+/doside exch def
+doside {
+  didside not
+  {point1x point1y moveto} if
+  point2x point2y
+  lineto
+  /didside true def
+}
+{ /didside false def }
+ifelse
+} def
+gsave
+  /x edgeboxlength def
+  /y edgeboxheight def
+  fillcolor
+  0 0 moveto
+  x 0 lineto
+  x y lineto
+  0 y lineto
+  0 0 lineto
+  closepath
+  gsave % fill but keep the path
+    fill
+  grestore
+  gsave
+    edgecolor
+    newpath
+    0 0 moveto % lastpoint
+    /didside true def
+    bottomside 0 0 x 0 segment
+     rightside x 0 x y segment
+       topside x y 0 y segment
+      leftside 0 y 0 0 segment
+    bottomside 0 0 x 0 segment
+    % repeat bottomside instead of doing a closepath
+    % since the closepath may cut a diagonal!
+    0 setlinejoin
+    stroke
+  grestore
+grestore
+} def
+
+/makeanybox{
+% make any kind of edged box AROUND the current point
+  /theedgecolor exch def
+  /thefillcolor exch def
+  /shiftbase exch def
+  /heady exch def
+  /headx exch def
+  /taily exch def
+  /tailx exch def
+    tailx shiftbase
+    % redefine boxes AROUND current point
+    0.5 sub
+          charwidth mul 2 mul add
+    taily
+        moveto
+    currentpoint translate
+    {thefillcolor}
+    {theedgecolor}
+    headx tailx sub
+    % redefine boxes AROUND current point
+    charwidth 2 mul add
+    heady taily sub
+} def
+
+/leftbox{
+% draw a filled box with the right side open
+gsave
+ makeanybox
+ true false true true
+ edgebox
+grestore
+} def
+
+/midbox{
+% draw a filled box with both the left and right sides open
+gsave
+ makeanybox
+ true false true false edgebox
+grestore
+} def
+
+/rightbox{
+% draw a filled box with the left side open
+gsave
+ makeanybox
+ true true true false edgebox
+grestore
+} def
+
+/fullbox{
+% draw a filled box with the no sides open
+gsave
+ makeanybox
+ true true true true edgebox
+grestore
+} def
+
+/colorpath {
+% color the path.  If fillfirst is true,
+% fill the path then stroke, otherwise
+% stroke first and then fill.
+% fillfirst gives thicker edges.
+% the fill color is 'bodycolor'.
+% the stroke color is 'strokecolor'.
+{ dofill {bodycolor fill} if}
+{ dostroke {strokecolor stroke} if}
+fillfirst {exch} if
+gsave exec grestore % use the path and restore it
+exec % use up the path forever
+} def
+
+/fixedarrow { % make a fixed position arrow
+% These are put on the stack:
+%    TailX     TailY     HEadX     HeadY     Shift
+%    bases      bits     bases      bits     bases
+% The arrow goes from the point (TailX,TailY)
+% to the point (HeadX,HeadY), and has a thickness of
+% BodyThick around this line segment.
+% on the stack give bases to move the arrow
+% globally defined parameters:
+% BodyThick: thickness of body of arrow
+% HeadWidth: How wide the tip of the arrow is
+% Headlength: How long the tip of the arrow is
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+charwidth mul 2 mul 0 translate
+BodyThick HeadWidth HeadLength
+arrow
+colorpath
+} def
+
+/fixedworra { % make a fixed position worra
+% These are put on the stack:
+%    TailX     TailY     HEadX     HeadY     Shift
+%    bases      bits     bases      bits     bases
+% The worra goes from the point (TailX,TailY)
+% to the point (HeadX,HeadY), and has a thickness of
+% BodyThick around this line segment.
+% on the stack give bases to move the worra
+% globally defined parameters:
+% BodyThick: thickness of body of worra
+% HeadWidth: How wide the tip of the worra is
+% Headlength: How long the tip of the worra is
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+charwidth mul 2 mul 0 translate
+BodyThick HeadWidth HeadLength
+worra
+colorpath
+} def
+
+/fixedrectangle { % make a fixed position rectangle
+% on the stack give bases to move the rectangle
+% globally defined parameters:
+% BodyThick: thickness of body of rectangle
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+% old definition which doesn't work correctly for shifting!!:
+% charwidth mul 2 mul 0 translate
+charwidth mul 0 translate
+%
+BodyThick BodyThick 0
+arrow
+colorpath
+} def
+
+/HTrecompute {
+% recompute the head and tail and stick onto stack
+% so that they run from the corners.
+% Also, define the BodyThick of the arrow
+/shiftbase exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+/BodyThick hy ty sub abs def
+/centery ty hy add 2 div def
+tx
+centery
+hx
+centery
+shiftbase
+} def
+
+/boundarrow { % make an arrow
+% Like fixedarrow but the endpoints are
+% the opposite ends of the arrow
+% so it is easier to position the edges.
+% BodyThick of the arrow is computed from these points
+HTrecompute
+fixedarrow
+} def
+
+/boundrectangle { % make a rectangle
+% Like fixedrectangle but the endpoints are
+% the opposite ends of the rectangle
+% so it is easier to position the edges.
+% BodyThick of the arrow is computed from these points
+HTrecompute
+fixedrectangle
+} def
+
+/wiggle { % tx ty dummy dummy shift wiggle
+% make a wiggle mark upwards from tx, ty.  Ignore the two dummy variables. 
+% shift the wiggle horizontally by the given amount in bases 
+/shiftbase exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+ tx shiftbase fs add -0.25 fs add ty moveto
+%
+% first pass, relative:
+% +0.5 fs  0.5 fs rlineto
+% -0.5 fs  0.5 fs rlineto
+% +0.5 fs  0.5 fs rlineto
+%
+% second pass, absolute:
+% currentpoint translate
+% +0.50 fs  0.5 fs lineto
+% -0.00 fs  1.0 fs lineto
+% +0.50 fs  1.5 fs lineto
+%
+ currentpoint translate
+ +0.50 fs  0.5 fs
+ -0.00 fs  1.0 fs
+ +0.50 fs  1.5 fs
+ curveto
+%
+% 1 0 0 setrgbcolor
+ 3 setlinewidth
+ stroke
+} def
+% U  710680.0  -2.5 0 0 +3.6 wiggle
+
+% standard definitions
+/BodyThick     8.00 fs def
+/HeadWidth    12.00 fs def
+/HeadLength    8.00 fs def
+/bodycolor {limegreen} def
+/strokecolor {blue} def
+/fillfirst true def
+/dostroke true def
+/dofill true def
+1 setlinewidth
+
+% define some convenient colors
+/white {1 1 1 setrgbcolor} def
+/black {0 0 0 setrgbcolor} def
+/red {1 0 0 setrgbcolor} def
+/green {0 1 0 setrgbcolor} def
+/blue {0 0 1 setrgbcolor} def
+/orange {1 0.7 0 setrgbcolor} def
+/yellow {1 1 0 setrgbcolor} def
+/purple {1 0 1 setrgbcolor} def
+% standard pink and greenish from lister
+/pink     {1   0.2 1   sethsbcolor} def
+/greenish {0.4 0.2 1   sethsbcolor} def
+
+/lightblue {0.60 0.1 1.0 sethsbcolor} def
+/lightgreen {0.35 0.1 1.0 sethsbcolor} def
+/lightpurple {0.80 0.1 1.0 sethsbcolor} def
+/lightyellow {0.10 0.1 1.0 sethsbcolor} def
+
+/limegreen {lightgreen} def
+/lightred   {pink} def
+
+% You can change any of the standard definitions
+% fs is the font size vertically
+% charwidth is assumed to exist (it does in makelogo and lister)
+% as the width of the characters horizontally.
+
+/forceforward {% don't do anything so that the next mark position is used
+pop pop pop pop % throw away the coordinates
+} def
+
+% ---------------------------------------------------------------------------
+
+% define a line and arrow based on the zero coordinate
+
+/zeroedinitialize {
+% zeroedlinethick zeroedheadthick zeroedheadlength
+% zeroedshiftdown zeroedbetweenlines zeroedinitialize -
+% initialize variables for:
+% zeroedlinethick    thickness of lines
+% zeroedheadthick    thickness of arrowhead
+% zeroedheadlength   length of arrowhead
+% zeroedshiftdown    initial amount to shift downward
+% zeroedbetweenlines amount to shift downward between lines
+/zeroedbetweenlines exch def
+/zeroedshiftdown    exch def
+/zeroedheadlength   exch def
+/zeroedheadthick    exch def
+/zeroedlinethick    exch def
+/zeroedshiftdowncounter zeroedshiftdown def
+} def
+2 6 8 -1.0 cm -0.20 cm zeroedinitialize  % start out
+/arrowshape {zeroedlinethick zeroedheadthick zeroedheadlength} def
+
+/zeroedline {% 0 0 0 0 xfrom xto zeroedline
+% mark a line at the zero coordinate.
+% all marks are started from base zero.
+% This allows them to be in any order and any size.
+% 
+% first see if there is a (-) or (+) on the line (like zeroedarrow)
+% and remove it if so.  This makes the two compatable.
+dup (-) eq {pop} if
+dup (+) eq {pop} if
+/xto   exch 0.5 add def
+/xfrom exch 0.5 add def
+pop pop pop pop % throw away the coordinate and base positions
+gsave
+  zeroedbetweenlines 0.5 mul setlinewidth
+  xfrom charwidth mul zeroedshiftdowncounter moveto
+  xto   charwidth mul zeroedshiftdowncounter lineto
+  zeroedlinethick setlinewidth
+  stroke
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines add def
+grestore
+} def
+
+/zeroedarrow {% 0 0 0 0 xfrom xto direction zeroedarrow
+% mark an arrow at the zero coordinate.
+% all marks are started from base zero.
+% This allows them to be in any order and any size.
+% the range is xfrom to xto.  The arrow direction is either (+)
+% (to the right) or (-) (to the left).
+% 
+  /direction exch def
+  /xto   exch 0.5 add def
+  /xfrom exch 0.5 add def
+  pop pop pop pop % throw away the coordinate and base positions
+  zeroedbetweenlines 0.5 mul setlinewidth
+%
+  direction  (+) eq
+  { xfrom fs zeroedshiftdowncounter xto   fs zeroedshiftdowncounter }
+  { xto   fs zeroedshiftdowncounter xfrom fs zeroedshiftdowncounter }
+  ifelse
+%
+  arrowshape arrow black fill
+%
+% experimental: show a literal after the end of the arrow.
+% xto fs 
+% zeroedshiftdowncounter zeroedbetweenlines 0.5 mul add
+% moveto 
+% ( something) show 
+%
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines add def
+  zeroedlinethick setlinewidth
+} def
+
+/zeroedname {% 0 0 0 0 atlocation (the string) zeroedname
+% mark a name at the location given relative to the zero coordinate.
+% the vertical coordinate is given by zerowedshiftdowncounter
+% 
+  /thestring  exch def
+  /atlocation exch def
+  pop pop pop pop % throw away the coordinate and base positions
+%
+% direction  (+) eq
+% { xfrom fs zeroedshiftdowncounter xto   fs zeroedshiftdowncounter }
+% { xto   fs zeroedshiftdowncounter xfrom fs zeroedshiftdowncounter }
+% ifelse
+%
+  gsave
+    atlocation fs % zeroedshiftdowncounter
+    zeroedshiftdowncounter zeroedbetweenlines 0.5 mul add
+    moveto 
+    thestring show 
+  grestore
+} def
+
+/unshift{
+% zeroedarrow automatically shifts down; sometimes one doesn't
+% want this.  This little routine counters it.  To use it:
+% U 0 0 0 0  -3.5   +0.5 (+) zeroedarrow unshift % -3 to 0
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines sub def
+} def
+
+% ---------------------------------------------------------------------------
+
+/doubleY {% 0 0 0 0 doubleY
+% Put a double Y just to the right of the current base position,
+% but shift it by the amount shiftY.
+% A double Y is like a captal Y letter joined at its base to the base of
+% an upsidedown capital Y.
+% pop pop pop pop % throw away the coordinate and base positions
+/shiftY exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+gsave
+/earlength {4 div fs} def
+  1.5 setlinewidth
+  shiftY charwidth 2 mul mul  ty moveto
+  gsave -1 earlength -1 earlength rlineto stroke grestore
+  gsave +1 earlength -1 earlength rlineto stroke grestore
+  shiftY charwidth 2 mul mul  hy lineto
+  gsave -1 earlength +1 earlength rlineto stroke grestore
+  gsave +1 earlength +1 earlength rlineto stroke grestore
+  stroke
+grestore
+} def
+
+% ---------------------------------------------------------------------------
+
+/positionedletters {% x y 0 0 morex morey theletters positionedletters
+% Position a set of letters (theletters) at point (x,y), where x
+% is in bases along the sequences (the trigger location for the mark)
+% and y is the vertical position in bits.  The next two parameters
+% are ignored by the mechanism.  In addition, one may move the string
+% of letters by additinal increments of characters horizontally (morex)
+% and in additional increments of bits vertically (morey).
+% This allows one to center a class of letters and place them around
+% the center.
+% The allowed letters are the 4 bases (a,c,g,t) and the amino
+% acids (capital letters)
+% example:
+% U 20 -1.5  0 0  1 0  (t a g c t t) positionedletters
+% Technical Note: This routine is for use with the lister program and depends
+% on the letters being functions that write to the postscript output.
+% For example, sequences in lister are produced by 'a e u e g',
+% where a u and g are routines to draw those letters and e is a space.
+% Therefore this routine will not work with makelogo.
+/theletters exch def
+/morey exch fontsize  mul def
+/morex exch charwidth mul def
+pop pop
+/y exch def
+/x exch def
+gsave
+   x morex add
+   y morey add
+  moveto
+  % the mechanism is to convert the literal string
+  % into an executable set on the stack and then
+  % to execute it.  Letters are defined to write
+  % in the lister code.
+  theletters cvx exec
+grestore
+} def
+
+% end of standard part ------------------------------------------------------
+
+
+/ShiftLettering {
+% use:
+% triggerbase ignored bases bits sfactor letters red green blue ShiftLettering -
+% PostScript definition of the lettering function.
+% - Trigger the mark at triggerbase.
+% - Make lettering at coordinate (bases, bits)
+% - with color as defined by red, green and blue.
+% - sfactor is the scale factor: 1.0 is no change, 2.0 is double ...
+% The second argument is ignored, so the letters can be anywhere relative to the
+% trigger point.
+% Multiple letters can be used.
+% examples:
+% U TRIGGER IGNORED  base   bits  sfactor (letters) R G B ShiftLettering
+% U     1.1   0        0    0     1       (A)       0 0 0 ShiftLettering
+% U   3.00    0      4.5    0     1       (5\302)   0 0 0 ShiftLettering
+% U   3.00    0      4.5    0     1       (5\242)   0 0 0 ShiftLetteringSymbol
+% 5\302 makes a 5' symbol, but \242 in the symbol fonts is sharper (recommended).
+%
+setrgbcolor
+/theletters exch def
+/sfactor exch def
+/y exch def
+%/x exch charwidth2m sub def
+%/x exch def
+/x exch charwidth 2 div sub def
+pop pop % FIRST two values are ignored
+x y moveto  % move to the given coordinates
+gsave
+  sfactor dup scale
+  theletters show
+grestore
+}
+def
+
+/ShiftLetteringItalic {
+% PostScript definition of the lettering function WITH ITALICS
+% See ShiftLettering for use
+FontForStringItalic % standard font switch
+ShiftLettering
+FontForStringRegular % standard font switch
+}
+def
+
+/ShiftLetteringSymbol {
+% PostScript definition of the lettering function WITH SYMBOLs
+% See ShiftLettering for use
+FontForSymbol % standard font switch
+ShiftLettering
+FontForStringRegular % standard font switch
+}
+def
+
+/lettering { % bases1 bits1 bases2 bits2 letters red green blue lettering -
+% PostScript definition of the lettering function
+% make lettering at coordinate (bases1, bits1)
+% with color as defined.
+% (bases2, bits2) are ignored.
+% multiple letters can be used.
+% example:
+%    bases      bits     IGNORED    IGNORED  (letters) lettering
+%
+% U      1.1     -0.50     0          0        (A) 0 0 0 lettering
+setrgbcolor
+/theletters exch def
+pop pop % last two values are ignored
+/y exch def
+/x exch charwidth2m sub def
+x y moveto  % move to the given coordinates
+theletters show
+}
+def
+
+/italiclettering { % bases1 bits1 bases2 bits2 red green blue italiclettering -
+% PostScript definition of the lettering function WITH ITALICS
+% make italic lettering at coordinate (bases1, bits1)
+% with color as defined.
+% (bases2, bits2) are ignored.
+% multiple letters can be used.
+% The routine uses the standard font switches in makelogo and lister
+setrgbcolor
+/theletters exch def
+pop pop % last two values are ignored
+/y exch def
+/x exch charwidth2m sub def
+x y moveto  % move to the given coordinates
+FontForStringItalic % standard font switch
+theletters show
+FontForStringRegular % standard font switch
+}
+def
+
+/scaledlettering {
+% bases1 bits1 bases2 bits2 letters red green blue factor scaledlettering -
+% make lettering at coordinate (bases1, bits1)
+% with color as defined.
+% (bases2, bits2) are ignored.
+% multiple letters can be used.
+% example:
+%    bases      bits     IGNORED    IGNORED  (letters) r g b  factor lettering
+% factor is the factor by which to scale the letters
+%
+% U      1.1     -0.50     0          0        (A) 0 0 0 0.9 lettering
+/factor exch def
+setrgbcolor
+/theletters exch def
+pop pop % last two values are ignored
+/y exch def
+/x exch charwidth2m sub def
+x y moveto  % move to the given coordinates
+gsave
+  factor dup scale
+  theletters show
+grestore
+}
+def
+
+/HeadWidth    15.00 fs def
+/HeadLength   10.00 fs def
+ n
+
+% writemarks
+gsave
+mh
+ mm  mm  mm  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2 gsave
+  0.42333 cm -4.23333 cm -82.76167 cm  0.00000 cm 
+        (R2) 0 0 0 lettering
+grestore
+
+/bodycolor {lightblue} def
+ m2  m2  m2  m2 
+ m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2 
+ m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2  m2 
+gsave
+  0.21167 cm -4.93889 cm -8.89000 cm -3.17500 cm 
+     -12.5 boundrectangle
+grestore
+gsave
+  0.21167 cm -6.70278 cm -8.89000 cm -4.93889 cm 
+     -34.5 boundrectangle
+grestore
+
+/bodycolor {yellow} def
+/HeadWidth     1.50 fs def
+/HeadLength    1.50 fs def
+gsave
+  0.21167 cm -7.49653 cm -0.74083 cm -7.14375 cm 
+     -36.00 boundarrow
+grestore
+gsave
+  0.21167 cm -7.49653 cm -0.74083 cm -7.14375 cm 
+     -31.00 boundarrow
+grestore
+gsave
+  0.21167 cm -7.49653 cm  1.16417 cm -7.14375 cm 
+     -21.00 boundarrow
+grestore
+gsave
+  0.21167 cm -7.49653 cm  1.16417 cm -7.14375 cm 
+     -11.00 boundarrow
+grestore
+
+/bodycolor {lightyellow} def
+ m2 grestore
+
+% writenumbers
+b
+ 4 MB (*) s 9 MB (*) s (190) s
+ 6 MB (*) s 9 MB (*) s (200) s
+ 6 MB (*) s 9 MB (*) s (210) s
+ 6 MB (*) s 9 MB (*) s (220) s
+ 6 MB (*) s 9 MB (*) s (230) s
+ n
+
+% writedna
+b ( 5') s
+e g e t e t e a e t e a e c e a e c e a e a e c e t e c e a e a e a e a e a e c
+ e t e g e a e a e c e a e a e c e a e g e t e t e g e t e t e c e t e t e t e g
+ e g e a e t e a e a e c b ( 3') s
+ n
+
+% writedna
+b ( 3') s
+e c e a e a e t e a e t e g e t e g e t e t e g e a e g e t e t e t e t e t e g
+ e a e c e t e t e g e t e t e g e t e c e a e a e c e a e a e g e a e a e a e c
+ e c e t e a e t e t e g b ( 5') s
+ n
+
+% writefeatures
+() s 45 MB
+(|) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( |) s 1 MB
+(DNase) s 1 MB
+(I) s 1 MB
+(footprint) s 1 MB
+() s gsave (\() s grestore
+( Messer) s 1 MB
+(et) s 1 MB
+(al.,) s 1 MB
+(1991) s gsave (\)) s grestore
+( ) s n
+() s 27 MB
+(|) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( |) s 1 MB
+(DNase) s 1 MB
+(I) s 1 MB
+(footprint) s 1 MB
+() s gsave (\() s grestore
+( Gille) s 1 MB
+(et) s 1 MB
+(al.,) s 1 MB
+(1991) s gsave (\)) s grestore
+( ) s n
+() s 9 MB
+(|) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( |) s 1 MB
+(DNase) s 1 MB
+(I) s 1 MB
+(footprint) s 1 MB
+() s gsave (\() s grestore
+( Filutowicz) s 1 MB
+(et) s 1 MB
+(al.,) s 1 MB
+(1992) s gsave (\)) s grestore
+( ) s n
+() s 21 MB
+(|) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( |) s 1 MB
+(MPE) s 1 MB
+(footprint) s 1 MB
+() s gsave (\() s grestore
+( Messer) s 1 MB
+(et) s 1 MB
+(al.,) s 1 MB
+(1992) s gsave (\)) s grestore
+( ) s n
+() s 23 MB
+(|) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( |) s 1 MB
+(DNase) s 1 MB
+(I) s 1 MB
+(footprint) s 1 MB
+() s gsave (\() s grestore
+( Roth) s 1 MB
+(et) s 1 MB
+(al.,) s 1 MB
+(1994) s gsave (\)) s grestore
+( ) s n
+() s 14 MB
+(+) s 15 MB
+(+) s 15 MB
+(+) s 3 MB
+(+) s 1 MB
+(+) s 1 MB
+(+) s 3 MB
+(+) s 1 MB
+() s gsave (-) s grestore
+( ) s 5 MB
+(DNase) s 1 MB
+(I) s 1 MB
+(footprint) s 1 MB
+(in) s 1 MB
+(situ) s 1 MB
+() s gsave (\() s grestore
+( Cassler) s 1 MB
+(et) s 1 MB
+(al.,) s 1 MB
+(1999) s gsave (\)) s grestore
+( ) s n
+() s n
+ n
+() s 6 MB
+ 1.74703 (a) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (a) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (t) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.91695 (a) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+-0.83794 (t) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.74703 (g) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (t) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (g) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+greenish makebar
+ 1.74703 (t) -90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+(DnaA) s 1 MB
+(13.5) s 1 MB
+(bits) s 2 MB
+ 0.56693 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  3.81000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -4.23333 cm  0.00000 cm -3.81000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.46549 (c) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  3.38667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -3.81000 cm  0.00000 cm -3.38667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.77552 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  2.96333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -3.38667 cm  0.00000 cm -2.96333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.82997 (g) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  2.54000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -2.96333 cm  0.00000 cm -2.54000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.02928 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  2.11667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -2.54000 cm  0.00000 cm -2.11667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.28106 (a) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  1.69333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -2.11667 cm  0.00000 cm -1.69333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.62967 (c) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  1.27000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -1.69333 cm  0.00000 cm -1.27000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.59864 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  0.84667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -1.27000 cm  0.00000 cm -0.84667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.18360 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  0.42333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -0.84667 cm  0.00000 cm -0.42333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-1.33996 (c) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -0.00000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -0.42333 cm  0.00000 cm  0.00000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+greenish makebar
+ 0.85644 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -0.42333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  0.00000 cm  0.00000 cm  0.42333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-1.33996 (g) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -0.84667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  0.42333 cm  0.00000 cm  0.84667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.18360 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -1.27000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  0.84667 cm  0.00000 cm  1.27000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.59864 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -1.69333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  1.27000 cm  0.00000 cm  1.69333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.62967 (g) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -2.11667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  1.69333 cm  0.00000 cm  2.11667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.28106 (t) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -2.54000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  2.11667 cm  0.00000 cm  2.54000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.02928 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -2.96333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  2.54000 cm  0.00000 cm  2.96333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.82997 (c) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -3.38667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  2.96333 cm  0.00000 cm  3.38667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.33996 (t) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -3.81000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  3.38667 cm  0.00000 cm  3.81000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.11757 (t) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -4.23333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  3.81000 cm  0.00000 cm  4.23333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.56693 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -4.65667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  4.23333 cm  0.00000 cm  4.65667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+(Fis) s 1 MB
+(9.1) s 1 MB
+(bits) s n
+ n
+ n
+ n
+ n
+() s 18 MB
+ 0.56693 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  3.81000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -4.23333 cm  0.00000 cm -3.81000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.46549 (c) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  3.38667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -3.81000 cm  0.00000 cm -3.38667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.33996 (a) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  2.96333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -3.38667 cm  0.00000 cm -2.96333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-2.33996 (a) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  2.54000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -2.96333 cm  0.00000 cm -2.54000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.11757 (c) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  2.11667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -2.54000 cm  0.00000 cm -2.11667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.85644 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  1.69333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -2.11667 cm  0.00000 cm -1.69333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.62967 (c) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  1.27000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -1.69333 cm  0.00000 cm -1.27000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.59864 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  0.84667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -1.27000 cm  0.00000 cm -0.84667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.18360 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+  0.42333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -0.84667 cm  0.00000 cm -0.42333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.74750 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -0.00000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+ -0.42333 cm  0.00000 cm  0.00000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+greenish makebar
+ 0.85644 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -0.42333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  0.00000 cm  0.00000 cm  0.42333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.53451 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -0.84667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  0.42333 cm  0.00000 cm  0.84667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-1.33996 (c) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -1.27000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  0.84667 cm  0.00000 cm  1.27000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.59864 (t) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -1.69333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  1.27000 cm  0.00000 cm  1.69333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.62967 (g) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -2.11667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  1.69333 cm  0.00000 cm  2.11667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.85644 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -2.54000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  2.11667 cm  0.00000 cm  2.54000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.17003 (a) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -2.96333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  2.54000 cm  0.00000 cm  2.96333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 1.82997 (c) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -3.38667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  2.96333 cm  0.00000 cm  3.38667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.77552 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -3.81000 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  3.38667 cm  0.00000 cm  3.81000 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+ 0.68979 (a) 0 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -4.23333 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  3.81000 cm  0.00000 cm  4.23333 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+-0.22448 (c) 180 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+gsave
+ -4.65667 cm 0 translate
+% amplitude  phase  wavelength  base:
+ -0.17639 cm  0.21167 cm  4.48733 cm  0.52917 cm
+% xmin ymin xmax ymax step:
+  4.23333 cm  0.00000 cm  4.65667 cm  0.74890 cm 1
+% dash settings:
+ -0.40000 cm -0.40000 cm  0.00000 cm  0.00000 cm drawcosine
+grestore
+grestore
+ b () s 1 MB
+(Fis) s 1 MB
+(8.4) s 1 MB
+(bits) s 4 MB
+greenish makebar
+ 1.74703 (t) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+-1.83794 (t) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (t) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.74703 (g) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.40999 (g) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.91695 (a) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (t) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.80592 (a) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+ 1.74703 (a) 90 wc
+gsave 
+currentpoint translate
+charwidth2d 0 translate
+0 setgray
+grestore
+ b () s 1 MB
+(DnaA) s 1 MB
+(12.1) s 1 MB
+(bits) s n
+ n
+ n
+ n
+() s n
+() s 19 MB
+(<) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s 2 MB
+(Syn) s 2 MB
+(<) s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( ) s 2 MB
+(Syn) s 16 MB
+() s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( >) s 2 MB
+(Syn) s 12 MB
+() s gsave (-) s grestore
+( ) s gsave (-) s grestore
+( >) s 2 MB
+(Syn) s n
+ n
+showpage
+%%Trailer
+%%Pages: 1

@@ -1,0 +1,21 @@
+#!/bin/csh -f
+#(ie run the cshell on this but don't read the .cshrc)
+
+# version = 1.01 of abs 2002 Sep 25
+# 2002 Sep 25, 1.01: improve documentation
+# origin: 1996Nov07.18:42:52
+
+# The censor and untex programs are available, see:
+# http://www.lecb.ncifcrf.gov/~toms/delila/censor.html
+# http://www.lecb.ncifcrf.gov/~toms/delila/untex.html
+# compiling information:
+# http://www.lecb.ncifcrf.gov/~toms/software.html
+
+echo Computing abstract length
+
+set abs = /tmp/abs.`whoami`
+rm -f $abs
+
+censor < paper.tex | untex > $abs
+cat $abs
+wc -w $abs

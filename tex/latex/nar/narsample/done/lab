@@ -1,0 +1,20 @@
+#!/bin/csh -f
+#(ie run the cshell on this but don't read the .cshrc)
+
+# show the words in the abstract
+
+# The censor programs is available, see:
+# http://www.lecb.ncifcrf.gov/~toms/delila/censor.html
+# compiling information:
+# http://www.lecb.ncifcrf.gov/~toms/software.html
+
+echo
+echo Words in abstract:
+echo ----------------------
+grep -v "censor deletion for wc of length" |\
+    censor < paper.tex | grep -v "%" > /tmp/"is the abstract length"
+cd /tmp
+cat "is the abstract length"
+echo ----------------------
+wc -w "is the abstract length"
+rm -f "is the abstract length"

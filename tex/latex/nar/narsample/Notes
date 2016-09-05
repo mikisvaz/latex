@@ -1,0 +1,25 @@
+2005 Feb 5
+Notes by Tom Schneider
+~toms/paper/fff/narsample
+
+This is a complete sample directory containing a paper published in
+Nucleic Acids Research.
+
+The all.bib file normally is a link to a larger bibliography
+file.  I made a sub-bibliography with mksubbib and subbib.bst:
+
+ftp://ftp.ncifcrf.gov/pub/delila/mksubbib
+ftp://ftp.ncifcrf.gov/pub/delila/subbib.bst
+
+The script l was used to run everything:
+
+ftp://ftp.ncifcrf.gov/pub/delila/l
+
+  Dr. Thomas D. Schneider
+  National Cancer Institute
+  Laboratory of Experimental and Computational Biology
+  Molecular Information Theory Group
+  Frederick, Maryland  21702-1201
+  toms@ncifcrf.gov
+  permanent email: toms@alum.mit.edu (use only if first address fails)
+  http://www.lecb.ncifcrf.gov/~toms/

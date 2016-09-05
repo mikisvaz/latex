@@ -1,0 +1,23 @@
+#!/bin/csh -f
+#(ie run the cshell on this but don't read the .cshrc)
+
+echo 'spell check of paper.tex and paper.bbl'
+
+cat paper.tex paper.bbl |untex|spell >paper.sp
+
+# cat paper.tex paper.bbl note?.tex|untex|spell >paper.sp
+#cat paper.tex paper.bbl note?.tex|detex -wi|spell >paper.sp
+
+echo 'the differences between the result, paper.sp and paper.okspell are:'
+diff paper.sp paper.okspell > paper.di
+cat paper.tex | thethe
+
+echo "Joining:---------------------"
+grep "<" paper.di | more
+echo "Leaving:---------------------"
+grep ">" paper.di | more
+echo "SPECIAL:---------------------"
+
+spellos
+# grep "chose" paper.tex
+# grep "chosing" paper.tex

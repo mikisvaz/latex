@@ -1,0 +1,8 @@
+#!/bin/csh -f
+#(ie run the cshell on this but don't read the .cshrc)
+#
+# list the figures in the paper
+# this requires that the user name each figure label with the 
+# word 'fig' in it such as fig.cow, fig.horse, etc.
+
+grep fig paper.aux | grep newlabel | more

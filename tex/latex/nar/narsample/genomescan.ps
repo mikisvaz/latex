@@ -1,0 +1,2614 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: xyplo 8.91
+%%Creator: Tom Schneider
+%%BoundingBox:   184   383   390   595
+%%DocumentFonts:
+%%EndComments
+%%EndProlog
+
+/defaultllx   7.1 def
+/defaultlly   7.0 def
+/defaulturx 588.1 def
+/defaultury 785.0 def
+/llx 184.0 def
+/lly 383.0 def
+/urx 390.0 def
+/ury 595.0 def
+/cmfactor 72 2.54 div def % defines points -> centimeters
+/cm { cmfactor mul} def % defines centimeters
+/edgecontrol (p) def
+/edgeleft   1.50000 cm def
+/edgeright  0.75000 cm def
+/edgelow    1.50000 cm def
+/edgehigh   1.00000 cm def
+% * columns: intervals ecoli random drops
+% user specified parameters:
+% **************************************************
+% **************************************************
+% z      0.0      50.000000 minimum and maximum for x axis determined from data
+% y      0.0   12000.000000 minimum and maximum for y axis  set by user
+%          5         6 number of intervals on x and y to plot
+%          8         8 width of numbers on graph in characters
+%          0         0 number of decimal places for numbers
+%      5.000     5.000 size of axes in cm
+% Distance between sites (base pairs)    the x axis label
+% Number of sites    the y axis label
+% no cross hairs put on zero of x and y
+% no log scale on x axis
+% no log scale on y axis
+% * column choices: **************************************************
+%     2    3 columns of input chosen for x and y respectively
+%     1      column that determines symbols
+%     0    0 columns that determine symbol size
+%     4    5    6 columns that determine color
+% * user defined symbols: **************************************************
+% C             symbol-to-plot:c(circle)bd(dotted box)x+Ifgpr(rectangle)
+% ecoli             character string in xyin to indicate this symbol
+% 0.010         symbol x size in cm
+% 0.010         symbol y size in cm
+% connected l 0.050 the symbols are connected by lines
+%  n l=line .=dotted -=dashed i=invisible n=no line
+% **************************************************
+% C             symbol-to-plot:c(circle)bd(dotted box)x+Ifgpr(rectangle)
+% random             character string in xyin to indicate this symbol
+% 0.010         symbol x size in cm
+% 0.010         symbol y size in cm
+% connected l 0.050 the symbols are connected by lines
+%  n l=line .=dotted -=dashed i=invisible n=no line
+% **************************************************
+% C             symbol-to-plot:c(circle)bd(dotted box)x+Ifgpr(rectangle)
+% drops             character string in xyin to indicate this symbol
+% 0.010         symbol x size in cm
+% 0.010         symbol y size in cm
+% connected l 0.050 the symbols are connected by lines
+%  n l=line .=dotted -=dashed i=invisible n=no line
+% **************************************************
+% C             symbol-to-plot:c(circle)bd(dotted box)x+Ifgpr(rectangle)
+% exponential             character string in xyin to indicate this symbol
+% 0.010         symbol x size in cm
+% 0.010         symbol y size in cm
+% connected l 0.050 the symbols are connected by lines
+%  n l=line .=dotted -=dashed i=invisible n=no line
+% **************************************************
+% C             symbol-to-plot:c(circle)bd(dotted box)x+Ifgpr(rectangle)
+% poisson             character string in xyin to indicate this symbol
+% 0.010         symbol x size in cm
+% 0.010         symbol y size in cm
+% connected l 0.050 the symbols are connected by lines
+%  n l=line .=dotted -=dashed i=invisible n=no line
+% **************************************************
+% .
+% * user defined lines: **************************************************
+%  (none)
+% **************************************************
+% **************************************************
+% version = 1.05 of xyplom 2003 Aug 26
+% 2003 Aug 26, 1.05: added marks.arrow functions!
+% 2003 Aug 26, 1.04: added examples of direct use
+% 2000 Apr  5, 1.03: added hollowsquare
+% origin 1996 Oct 10
+% PostScript definitions of additional symbols for xyplo
+
+% This is an example xy plotter marks file (xyplom)
+% It is to be used with the xyplo program:
+%
+% http://www.lecb.ncifcrf.gov/~toms/delila/xyplo.html
+%
+% Detailed documentation is there.
+
+% This file contains two simple examples,
+% for making a filled square and a hollow square.
+
+% It also has a very complex example (but simple to use!!)
+% of an arrow definition.  The use is at the bottom of the file.
+
+% IF YOU ARE NOT USING THESE FUNCTIONS SIMPLY USE AN EMPTY
+% FILE FOR YOUR xyplom.  Otherwise all these functions will be
+% added to your output file, and that would be a waste.
+
+/fillsquare { % xsize ysize fillsquare -
+% make a filled square centered at the current location
+% xsize x size in points
+% ysize y size in points
+  /ysize exch def
+  /xsize exch def
+  xsize -2 div ysize -2 div translate
+  0 0 moveto
+  xsize 0 lineto
+  xsize ysize lineto
+  0 ysize lineto
+  closepath
+  fill
+} bind def
+
+/hollowsquare { % xsize ysize hollowsquare -
+% make a hollowed square with the left corner at the current location
+% xsize x size in points
+% ysize y size in points
+  /ysize exch def
+  /xsize exch def
+%  xsize -2 div ysize -2 div translate
+%  xsize -2 div ysize -2 div translate
+  0 0 moveto
+  xsize 0 lineto
+  xsize ysize lineto
+  0 ysize lineto
+  closepath
+  stroke
+} bind def
+
+% The following code uses the above two examples
+% to draw the components before the rest of the graph is drawn.
+% gsave
+%  5 cm 8 cm translate
+%  5 cm 3 cm fillsquare
+%  5 cm 8 cm translate
+%  2 cm 4 cm hollowsquare
+% grestore
+
+
+% from version = 1.50 of marks.arrow 2003 Feb 19
+% define arrow and rectangle marks
+% origin before 1996 June 29
+
+
+% * version = 1.50 of marks.arrow 2003 Feb 19
+% * define arrow and rectangle marks
+% * origin before 1996 June 29
+
+% * History:
+% * 2003 Feb 19: 1.50: cleanup
+% * 2000 Sep  2: 1.48: positionedletters defined
+% * 2000 Jul  5: 1.47: unshift defined
+% * 2000 Jun 29: 1.46: introduce greenish and pink
+% * 1999 Aug 15: incredibly stupid definition fixed: /limegreen {limegreen} def
+% * 1998 Mar 29: definition of fixedrectangle corrected to shift properly
+% * 1999 May 11: definition of zeroedline and zeroedarrow
+
+% u
+% % define error message that will show up if the user forgets
+% % to use this file
+% /You_need_a_marks.arrow_definition {} def
+
+% define font size as a unit of measure:
+/fontsize 1 cm def % keeps the standard routines happy
+/charwidth fontsize def % keeps the standard routines happy
+/fs {fontsize mul} def
+
+% Define an arrow
+% Source: page 141 of the PostScript Cookbook
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+/arrow
+{ arrowdict begin
+  /headlength exch def
+  /halfheadthickness exch 2 div def
+  /halfthickness exch 2 div def
+  /tipy exch def /tipx exch def
+  /taily exch def /tailx exch def
+  /dx tipx tailx sub def
+  /dy tipy taily sub def
+  /arrowlength dx dx mul dy dy mul add sqrt def
+  /angle dy dx atan def
+  /base arrowlength headlength sub def
+  /savematrix mtrx currentmatrix def
+  tailx taily translate
+  angle rotate
+  0 halfthickness neg moveto
+  base halfthickness neg lineto
+  base halfheadthickness neg lineto
+  arrowlength 0 lineto
+  base halfheadthickness lineto
+  base halfthickness lineto
+  0 halfthickness lineto
+  closepath
+  savematrix setmatrix
+  end
+} def
+
+% Define a worra, the end of an arrow
+% Source: page 141 of the PostScript Cookbook
+/worradict 14 dict def
+worradict begin
+ /mtrx matrix def
+end
+/worra
+{ worradict begin
+  /headlength exch def
+  /halfheadthickness exch 2 div def
+  /halfthickness exch 2 div def
+  /tipy exch def /tipx exch def
+  /taily exch def /tailx exch def
+  /dx tipx tailx sub def
+  /dy tipy taily sub def
+  /worralength dx dx mul dy dy mul add sqrt def
+  /angle dy dx atan def
+  /base worralength headlength sub def
+  /savematrix mtrx currentmatrix def
+  tailx taily translate
+  angle rotate
+% 0 halfthickness neg moveto
+% base halfthickness neg lineto
+% base halfheadthickness neg lineto
+% worralength 0 lineto
+% base halfheadthickness lineto
+% base halfthickness lineto
+% 0 halfthickness lineto
+/h2 headlength 2 div def
+/h3 headlength 3 div def
+base 0 moveto
+base h3 neg add halfheadthickness neg lineto
+base 0  add     halfheadthickness neg lineto
+base h3 add     0 lineto
+base 0  add     halfheadthickness     lineto
+base h3 neg add halfheadthickness     lineto
+base 0  add 0 lineto
+% now do a rectangle:
+base 0  add halfthickness neg lineto
+base h2 add halfthickness neg lineto
+base h2 add halfthickness     lineto
+base 0  add halfthickness     lineto
+  closepath
+%grestore
+  savematrix setmatrix
+  end
+} def
+
+/edgebox{
+% Define an edgebox, a box with only some edges drawn
+% input parameters:
+% {fillcolor} {edgecolor}
+% edgeboxlength edgeboxheight
+% bottomside rightside topside leftside
+% 
+% edgecolors define the red, green and blue components of the edge
+% fillcolors define the filling color
+% box length is the x axis length
+% box height is the y axis length
+% The four sides are booleans that determine which side edges are drawn
+  /leftside      exch def
+  /topside       exch def
+  /rightside     exch def
+  /bottomside    exch def
+  /edgeboxheight exch def
+  /edgeboxlength exch def
+  /edgecolor     exch def
+  /fillcolor     exch def
+/segment {
+/point2y exch def
+/point2x exch def
+/point1y exch def
+/point1x exch def
+/doside exch def
+doside {
+  didside not
+  {point1x point1y moveto} if
+  point2x point2y
+  lineto
+  /didside true def
+}
+{ /didside false def }
+ifelse
+} def
+gsave
+  /x edgeboxlength def
+  /y edgeboxheight def
+  fillcolor
+  0 0 moveto
+  x 0 lineto
+  x y lineto
+  0 y lineto
+  0 0 lineto
+  closepath
+  gsave % fill but keep the path
+    fill
+  grestore
+  gsave
+    edgecolor
+    newpath
+    0 0 moveto % lastpoint
+    /didside true def
+    bottomside 0 0 x 0 segment
+     rightside x 0 x y segment
+       topside x y 0 y segment
+      leftside 0 y 0 0 segment
+    bottomside 0 0 x 0 segment
+    % repeat bottomside instead of doing a closepath
+    % since the closepath may cut a diagonal!
+    0 setlinejoin
+    stroke
+  grestore
+grestore
+} def
+
+/makeanybox{
+% make any kind of edged box AROUND the current point
+  /theedgecolor exch def
+  /thefillcolor exch def
+  /shiftbase exch def
+  /heady exch def
+  /headx exch def
+  /taily exch def
+  /tailx exch def
+    tailx shiftbase
+    % redefine boxes AROUND current point
+    0.5 sub
+          charwidth mul 2 mul add
+    taily
+        moveto
+    currentpoint translate
+    {thefillcolor}
+    {theedgecolor}
+    headx tailx sub
+    % redefine boxes AROUND current point
+    charwidth 2 mul add
+    heady taily sub
+} def
+
+/leftbox{
+% draw a filled box with the right side open
+gsave
+ makeanybox
+ true false true true
+ edgebox
+grestore
+} def
+
+/midbox{
+% draw a filled box with both the left and right sides open
+gsave
+ makeanybox
+ true false true false edgebox
+grestore
+} def
+
+/rightbox{
+% draw a filled box with the left side open
+gsave
+ makeanybox
+ true true true false edgebox
+grestore
+} def
+
+/fullbox{
+% draw a filled box with the no sides open
+gsave
+ makeanybox
+ true true true true edgebox
+grestore
+} def
+
+/colorpath {
+% color the path.  If fillfirst is true,
+% fill the path then stroke, otherwise
+% stroke first and then fill.
+% fillfirst gives thicker edges.
+% the fill color is 'bodycolor'.
+% the stroke color is 'strokecolor'.
+{ dofill {bodycolor fill} if}
+{ dostroke {strokecolor stroke} if}
+fillfirst {exch} if
+gsave exec grestore % use the path and restore it
+exec % use up the path forever
+} def
+
+/fixedarrow { % make a fixed position arrow
+% These are put on the stack:
+%    TailX     TailY     HEadX     HeadY     Shift
+%    bases      bits     bases      bits     bases
+% The arrow goes from the point (TailX,TailY)
+% to the point (HeadX,HeadY), and has a thickness of
+% BodyThick around this line segment.
+% on the stack give bases to move the arrow
+% globally defined parameters:
+% BodyThick: thickness of body of arrow
+% HeadWidth: How wide the tip of the arrow is
+% Headlength: How long the tip of the arrow is
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+charwidth mul 2 mul 0 translate
+BodyThick HeadWidth HeadLength
+arrow
+colorpath
+} def
+
+/fixedworra { % make a fixed position worra
+% These are put on the stack:
+%    TailX     TailY     HEadX     HeadY     Shift
+%    bases      bits     bases      bits     bases
+% The worra goes from the point (TailX,TailY)
+% to the point (HeadX,HeadY), and has a thickness of
+% BodyThick around this line segment.
+% on the stack give bases to move the worra
+% globally defined parameters:
+% BodyThick: thickness of body of worra
+% HeadWidth: How wide the tip of the worra is
+% Headlength: How long the tip of the worra is
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+charwidth mul 2 mul 0 translate
+BodyThick HeadWidth HeadLength
+worra
+colorpath
+} def
+
+/fixedrectangle { % make a fixed position rectangle
+% on the stack give bases to move the rectangle
+% globally defined parameters:
+% BodyThick: thickness of body of rectangle
+% bodycolor: function that sets the body of the rectangle
+% strokecolor: function that sets the edge of the rectangle
+% dostroke: stroke if true
+% dofill: fill if true
+% old definition which doesn't work correctly for shifting!!:
+% charwidth mul 2 mul 0 translate
+charwidth mul 0 translate
+%
+BodyThick BodyThick 0
+arrow
+colorpath
+} def
+
+/HTrecompute {
+% recompute the head and tail and stick onto stack
+% so that they run from the corners.
+% Also, define the BodyThick of the arrow
+/shiftbase exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+/BodyThick hy ty sub abs def
+/centery ty hy add 2 div def
+tx
+centery
+hx
+centery
+shiftbase
+} def
+
+/boundarrow { % make an arrow
+% Like fixedarrow but the endpoints are
+% the opposite ends of the arrow
+% so it is easier to position the edges.
+% BodyThick of the arrow is computed from these points
+HTrecompute
+fixedarrow
+} def
+
+/boundrectangle { % make a rectangle
+% Like fixedrectangle but the endpoints are
+% the opposite ends of the rectangle
+% so it is easier to position the edges.
+% BodyThick of the arrow is computed from these points
+HTrecompute
+fixedrectangle
+} def
+
+/wiggle { % tx ty dummy dummy shift wiggle
+% make a wiggle mark upwards from tx, ty.  Ignore the two dummy variables. 
+% shift the wiggle horizontally by the given amount in bases 
+/shiftbase exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+ tx shiftbase fs add -0.25 fs add ty moveto
+%
+% first pass, relative:
+% +0.5 fs  0.5 fs rlineto
+% -0.5 fs  0.5 fs rlineto
+% +0.5 fs  0.5 fs rlineto
+%
+% second pass, absolute:
+% currentpoint translate
+% +0.50 fs  0.5 fs lineto
+% -0.00 fs  1.0 fs lineto
+% +0.50 fs  1.5 fs lineto
+%
+ currentpoint translate
+ +0.50 fs  0.5 fs
+ -0.00 fs  1.0 fs
+ +0.50 fs  1.5 fs
+ curveto
+%
+% 1 0 0 setrgbcolor
+ 3 setlinewidth
+ stroke
+} def
+% U  710680.0  -2.5 0 0 +3.6 wiggle
+
+% standard definitions
+/BodyThick     8.00 fs def
+/HeadWidth    12.00 fs def
+/HeadLength    8.00 fs def
+/bodycolor {limegreen} def
+/strokecolor {blue} def
+/fillfirst true def
+/dostroke true def
+/dofill true def
+1 setlinewidth
+
+% define some convenient colors
+/white {1 1 1 setrgbcolor} def
+/black {0 0 0 setrgbcolor} def
+/red {1 0 0 setrgbcolor} def
+/green {0 1 0 setrgbcolor} def
+/blue {0 0 1 setrgbcolor} def
+/orange {1 0.7 0 setrgbcolor} def
+/yellow {1 1 0 setrgbcolor} def
+/purple {1 0 1 setrgbcolor} def
+% standard pink and greenish from lister
+/pink     {1   0.2 1   sethsbcolor} def
+/greenish {0.4 0.2 1   sethsbcolor} def
+
+/lightblue {0.60 0.1 1.0 sethsbcolor} def
+/lightgreen {0.35 0.1 1.0 sethsbcolor} def
+/lightpurple {0.80 0.1 1.0 sethsbcolor} def
+/lightyellow {0.10 0.1 1.0 sethsbcolor} def
+
+/limegreen {lightgreen} def
+/lightred   {pink} def
+
+% You can change any of the standard definitions
+% fs is the font size vertically
+% charwidth is assumed to exist (it does in makelogo and lister)
+% as the width of the characters horizontally.
+
+/forceforward {% don't do anything so that the next mark position is used
+pop pop pop pop % throw away the coordinates
+} def
+
+% ---------------------------------------------------------------------------
+
+% define a line and arrow based on the zero coordinate
+
+/zeroedinitialize {
+% zeroedlinethick zeroedheadthick zeroedheadlength
+% zeroedshiftdown zeroedbetweenlines zeroedinitialize -
+% initialize variables for:
+% zeroedlinethick    thickness of lines
+% zeroedheadthick    thickness of arrowhead
+% zeroedheadlength   length of arrowhead
+% zeroedshiftdown    initial amount to shift downward
+% zeroedbetweenlines amount to shift downward between lines
+/zeroedbetweenlines exch def
+/zeroedshiftdown    exch def
+/zeroedheadlength   exch def
+/zeroedheadthick    exch def
+/zeroedlinethick    exch def
+/zeroedshiftdowncounter zeroedshiftdown def
+} def
+2 6 8 -1.0 cm -0.20 cm zeroedinitialize  % start out
+/arrowshape {zeroedlinethick zeroedheadthick zeroedheadlength} def
+
+/zeroedline {% 0 0 0 0 xfrom xto zeroedline
+% mark a line at the zero coordinate.
+% all marks are started from base zero.
+% This allows them to be in any order and any size.
+% 
+% first see if there is a (-) or (+) on the line (like zeroedarrow)
+% and remove it if so.  This makes the two compatable.
+dup (-) eq {pop} if
+dup (+) eq {pop} if
+/xto   exch 0.5 add def
+/xfrom exch 0.5 add def
+pop pop pop pop % throw away the coordinate and base positions
+gsave
+  zeroedbetweenlines 0.5 mul setlinewidth
+  xfrom charwidth mul zeroedshiftdowncounter moveto
+  xto   charwidth mul zeroedshiftdowncounter lineto
+  zeroedlinethick setlinewidth
+  stroke
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines add def
+grestore
+} def
+
+/zeroedarrow {% 0 0 0 0 xfrom xto direction zeroedarrow
+% mark an arrow at the zero coordinate.
+% all marks are started from base zero.
+% This allows them to be in any order and any size.
+% the range is xfrom to xto.  The arrow direction is either (+)
+% (to the right) or (-) (to the left).
+% 
+  /direction exch def
+  /xto   exch 0.5 add def
+  /xfrom exch 0.5 add def
+  pop pop pop pop % throw away the coordinate and base positions
+  zeroedbetweenlines 0.5 mul setlinewidth
+%
+  direction  (+) eq
+  { xfrom fs zeroedshiftdowncounter xto   fs zeroedshiftdowncounter }
+  { xto   fs zeroedshiftdowncounter xfrom fs zeroedshiftdowncounter }
+  ifelse
+%
+  arrowshape arrow black fill
+%
+% experimental: show a literal after the end of the arrow.
+% xto fs 
+% zeroedshiftdowncounter zeroedbetweenlines 0.5 mul add
+% moveto 
+% ( something) show 
+%
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines add def
+  zeroedlinethick setlinewidth
+} def
+
+/zeroedname {% 0 0 0 0 atlocation (the string) zeroedname
+% mark a name at the location given relative to the zero coordinate.
+% the vertical coordinate is given by zerowedshiftdowncounter
+% 
+  /thestring  exch def
+  /atlocation exch def
+  pop pop pop pop % throw away the coordinate and base positions
+%
+% direction  (+) eq
+% { xfrom fs zeroedshiftdowncounter xto   fs zeroedshiftdowncounter }
+% { xto   fs zeroedshiftdowncounter xfrom fs zeroedshiftdowncounter }
+% ifelse
+%
+  gsave
+    atlocation fs % zeroedshiftdowncounter
+    zeroedshiftdowncounter zeroedbetweenlines 0.5 mul add
+    moveto 
+    thestring show 
+  grestore
+} def
+
+/unshift{
+% zeroedarrow automatically shifts down; sometimes one doesn't
+% want this.  This little routine counters it.  To use it:
+% U 0 0 0 0  -3.5   +0.5 (+) zeroedarrow unshift % -3 to 0
+  /zeroedshiftdowncounter zeroedshiftdowncounter zeroedbetweenlines sub def
+} def
+
+% ---------------------------------------------------------------------------
+
+/doubleY {% 0 0 0 0 doubleY
+% Put a double Y just to the right of the current base position,
+% but shift it by the amount shiftY.
+% A double Y is like a captal Y letter joined at its base to the base of
+% an upsidedown capital Y.
+% pop pop pop pop % throw away the coordinate and base positions
+/shiftY exch def
+/hy exch def
+/hx exch def
+/ty exch def
+/tx exch def
+gsave
+/earlength {4 div fs} def
+  1.5 setlinewidth
+  shiftY charwidth 2 mul mul  ty moveto
+  gsave -1 earlength -1 earlength rlineto stroke grestore
+  gsave +1 earlength -1 earlength rlineto stroke grestore
+  shiftY charwidth 2 mul mul  hy lineto
+  gsave -1 earlength +1 earlength rlineto stroke grestore
+  gsave +1 earlength +1 earlength rlineto stroke grestore
+  stroke
+grestore
+} def
+
+% ---------------------------------------------------------------------------
+
+/positionedletters {% x y 0 0 morex morey theletters positionedletters
+% Position a set of letters (theletters) at point (x,y), where x
+% is in bases along the sequences (the trigger location for the mark)
+% and y is the vertical position in bits.  The next two parameters
+% are ignored by the mechanism.  In addition, one may move the string
+% of letters by additinal increments of characters horizontally (morex)
+% and in additional increments of bits vertically (morey).
+% This allows one to center a class of letters and place them around
+% the center.
+% The allowed letters are the 4 bases (a,c,g,t) and the amino
+% acids (capital letters)
+% example:
+% U 20 -1.5  0 0  1 0  (t a g c t t) positionedletters
+% Technical Note: This routine is for use with the lister program and depends
+% on the letters being functions that write to the postscript output.
+% For example, sequences in lister are produced by 'a e u e g',
+% where a u and g are routines to draw those letters and e is a space.
+% Therefore this routine will not work with makelogo.
+/theletters exch def
+/morey exch fontsize  mul def
+/morex exch charwidth mul def
+pop pop
+/y exch def
+/x exch def
+gsave
+   x morex add
+   y morey add
+  moveto
+  % the mechanism is to convert the literal string
+  % into an executable set on the stack and then
+  % to execute it.  Letters are defined to write
+  % in the lister code.
+  theletters cvx exec
+grestore
+} def
+
+% end of standard part ------------------------------------------------------
+
+% !
+
+% * Zeroed marks
+% 
+% * this works:
+% *U -10.5 -0.62 10.5 -0.62 arrowshape arrow red fill % trxC bottom
+% *U      0.0    -0.25       5.0    -0.25  arrowshape arrow black fill
+% *U      0.0    -0.25       5.0    -0.25  arrowshape arrow black fill
+% 
+% * examples:
+% *U 0 0 0 0  -0.5  +0.5 zeroedline
+% *U 0 0 0 0  -5.5  +5.5 (+) zeroedarrow
+% *U 0 0 0 0  -5.5  +5.5 (-) zeroedarrow
+% 
+% * U 0 0 0 0  -0.5  +0.5 (+) zeroedarrow
+% * U 0 0 0 0  -0.5  +1.5 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  -3.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  -2.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  -1.0 (+) zeroedarrow
+% * *U 0 0 0 0  0.0  +0.0 (+) zeroedarrow CANNOT DO - error
+% * U 0 0 0 0  +0.0  +1.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  +2.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  +3.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  +4.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  +5.0 (+) zeroedarrow
+% * U 0 0 0 0  +0.0  +6.0 (+) zeroedarrow
+% 
+% * U 0 0 0 0  +0.5  -0.5 (-) zeroedarrow
+% * U 0 0 0 0  +0.5  -1.5 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  +3.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  +2.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  +1.0 (-) zeroedarrow
+% * *U 0 0 0 0  0.0  -0.0 (-) zeroedarrow CANNOT DO - error
+% * U 0 0 0 0  +0.0  -1.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  -2.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  -3.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  -4.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  -5.0 (-) zeroedarrow
+% * U 0 0 0 0  +0.0  -6.0 (-) zeroedarrow
+% 
+% * you can use unshift to undo a down shift by zeroedarrow:
+% * U 0 0 0 0  -3.5   +0.5 (+) zeroedarrow unshift % -3 to 0
+% 
+% *U 0 0 0 0  -0.5  +0.5 zeroedline
+% *U 0 0 0 0  -0.5  +1.5 zeroedline
+% *U 0 0 0 0   0.0  -3.0 zeroedline
+% *U 0 0 0 0   0.0  -2.0 zeroedline
+% *U 0 0 0 0   0.0  -1.0 zeroedline
+% *U 0 0 0 0   0.0  +0.0 zeroedline
+% *U 0 0 0 0   0.0  +1.0 zeroedline
+% *U 0 0 0 0   0.0  +2.0 zeroedline
+% *U 0 0 0 0   0.0  +3.0 zeroedline
+% *U 0 0 0 0   0.0  +4.0 zeroedline
+% *U 0 0 0 0   0.0  +5.0 zeroedline
+% *U 0 0 0 0   0.0  +6.0 zeroedline
+% 
+% ********************************************************************************
+% 
+% * Coordinate based marks
+% 
+% * Give the coordinates of the tail (in bases and bits) of the arrow.
+% * Give the coordinates of the head (in bases and bits) of the arrow.
+% * The head is the pointy end:  tail => head.
+% * You can use a fixed rectangle instead.
+% * Then give the bases to shift the tail of the arrow.
+% * The reason for this feature is that marks are drawn in the order
+% * given, and so later ones overlap earlier ones.
+% * By moving the tail, you will have full control.
+% 
+% *23456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789
+% *        1         2         3         4         5         6         7         8
+% 
+% * examples:
+% *    TailX     TailY     HEadX     HeadY     Shift
+% *    bases      bits     bases      bits     bases
+% * U    -10.0     0.00      -5.0     0.00         0 fixedrectangle
+% * U      0.0    -1.25       5.0    -1.25         0 fixedarrow
+% * U    -10.0     0.00      -5.0     1.00         0 boundrectangle
+% * U      0.0    -1.25       5.0    -2.25         0 boundarrow
+% * U   1244.0     -0.25    1262.0      1.00     -15.50 boundrectangle
+% * U   1244.0     -0.25    1262.0      1.00   forceforward
+% 
+% * define corners: lower left to upper right:
+% 
+% * U   140.00    -0.30    141.00    -0.10   0 {lightgreen} {black} fullbox
+% * U   140.00    -1.30    141.00    -0.10   1 {lightgreen} {black} fullbox
+% * U   140.00    -2.30    141.00    -0.10   2 {lightgreen} {black} fullbox
+% * U   140.00    -3.30    141.00    -0.10   3 {lightgreen} {black} fullbox
+% * U   140.00    -4.30    141.00    -0.10   4 {lightgreen} {black} fullbox
+% * U   140.00    -5.30    141.00    -0.10   5 {lightgreen} {black} fullbox
+% * U   140.00    -6.30    141.00    -0.10   6 {lightgreen} {black} fullbox
+% * U   145.45    -1.30    146.55    -0.10   1 {yellow} {black} fullbox
+% * U   150.45    -1.30    151.55    -0.10   0 {lightgreen} {black} leftbox
+% * U   151.45    -1.30    152.55    -0.10   0 {lightgreen} {black} midbox
+% * U   152.45    -1.30    153.55    -0.10   0 {lightgreen} {black} rightbox
+% 
+% ********************************************************************************
+
+
+% standard definitions
+/BodyThick     0.020 fs def
+/HeadWidth     0.110 fs def
+/HeadLength    0.100 fs def
+/bodycolor {black} def
+/strokecolor {black} def
+/fillfirst true def
+/dostroke true def
+/dofill true def
+1 setlinewidth
+
+/holdme {
+/locx   9.1 cm def
+/locy  18.8 cm def
+/length 0.5 cm def
+/tailx locx def
+/taily locy length add def
+/headx locx def
+/heady locy def
+% *   TailX      TailY                HEadX       HeadY     Shift
+tailx taily headx heady 0 fixedarrow
+} def
+
+/downarrow { % locx locy length downarrow -
+% draw a downward arrow
+/length exch cm def
+/locy   exch cm def
+/locx   exch cm def
+/tailx locx def
+/taily locy length add def
+/headx locx def
+/heady locy def
+% *   TailX      TailY                HEadX       HeadY     Shift
+tailx taily headx heady 0 fixedarrow
+} def
+
+9.1 18.8 0.5 downarrow
+
+8.7 17.3 0.5 downarrow
+gsave
+% initgraphics
+% clear erasepage
+/Times-Roman findfont
+12 scalefont
+setfont
+226.80000 425.25000 translate
+
+% Define functions so the text produced is smaller
+/a {stroke newpath 0 0} def     % special for arc
+/c {stroke 0 0 moveto} def      % current point
+/f {findfont 10 scalefont setfont} def
+   % to set fonts simply use the f function.  Example:
+   %/Symbol f (\142) /Courier-Bold f (-galactosidase
+/l {lineto} def
+/m {moveto} def
+/n {stroke newpath 0 0 moveto} def
+/rl {rlineto} def
+/rm {rmoveto} def
+/s {newpath 0 0 moveto} def     % Start path 
+/t {currentpoint translate} def % translate 
+/x {show} def                   % show teXt 
+
+s
+ 0.00000  0.00000 m t
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 115.08919 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -56.10938 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 60.25556 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -36.08719 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -56.46375 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+n
+ 0.00000 -0.00000 m t
+ 2.83500 -7.68994 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 40.58775 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -4.78406 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -18.14400 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -11.63531 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 75.68269 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000 -0.00000 m t
+ 2.83500 -58.25925 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -12.91106 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -21.20344 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 32.46075 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -15.67519 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -10.25325 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 23.89669 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -9.61537 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.01181 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  2.98856 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -8.09156 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.77962 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  5.19750 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -4.41788 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -3.94537 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  3.92175 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -4.27612 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.21669 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  2.26800 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -2.61056 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.36619 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500  2.33888 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -4.15800 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.94500 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  3.65006 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -4.40606 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  0.10631 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500  2.14987 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -3.39019 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.12994 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  1.91363 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -2.50425 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -0.95681 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  1.86638 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -2.37431 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.44888 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  2.44519 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -3.05944 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -0.28350 l t
+n   0.0000 setgray
+n   0.0000   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+-141.75000 -9.61538 m t
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 82.21500 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -33.27581 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 26.23556 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  1.89000 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -48.77381 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -11.62350 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 37.71731 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -7.74900 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -15.06094 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -11.16281 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 76.09613 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -64.16550 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -6.10706 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -19.00631 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 26.12925 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -10.61944 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -8.57587 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 16.95094 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -4.05169 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.95681 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500  0.35437 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -4.65413 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  0.66150 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.30713 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  2.04356 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -2.88225 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -1.05131 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  0.74419 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.65375 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.71281 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.37800 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500  0.74419 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.49613 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.40162 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  0.05906 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.34662 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.22444 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -0.27169 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.51200 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  0.75600 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.44887 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.37025 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500  0.53156 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.07494 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.01181 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.42525 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.17719 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500  0.01181 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -0.63788 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.3400   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.44887 l t
+n   0.0000 setgray
+n   0.3400   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+-141.75000 49.95506 m t
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -2.01994 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.93725 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.87819 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -1.81913 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.74825 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.70100 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.64194 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.58288 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -1.53562 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.47656 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.44112 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.38206 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.33481 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.29937 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -1.25213 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.20487 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.16944 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.13400 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.09856 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -1.05131 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -1.02769 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.98044 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.95681 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.92138 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.89775 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -0.86231 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.83869 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.80325 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.77962 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.75600 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -0.73237 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.69694 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.68513 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.66150 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.63787 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.61425 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -0.59062 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.57881 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.55519 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.54337 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.51975 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+n
+ 2.83500 -0.49613 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.48431 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.47250 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.46069 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.43706 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.42525 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+n
+ 0.00000  0.00000 m t
+ 2.83500 -0.40162 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.40162 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.6800   1.0000   1.0000 sethsbcolor
+ 0.00000  0.00000 m t
+ 2.83500 -0.38981 l t
+n   0.0000 setgray
+n   0.6800   1.0000   1.0000 sethsbcolor
+a  0.14175  0.00000 360.00000
+arc n
+n   0.0000 setgray
+1 setlinewidth
+n   0.0000 setgray
+-141.75000 -11.16281 m t
+gsave
+141.75000  0.00000 l t
+-141.75000  0.00000 m t
+ 0.00000 -3.60045 l t
+ 0.00000 -14.40180 m t
+gsave c
+(0) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-0.00000 14.40180 m t
+n
+ 0.00000  3.60045 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+n
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+n
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 0.00000 -3.60045 l t
+ 0.00000 -14.40180 m t
+gsave c
+(10) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-0.00000 14.40180 m t
+n
+ 0.00000  3.60045 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+n
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+n
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 0.00000 -3.60045 l t
+ 0.00000 -14.40180 m t
+gsave c
+(20) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-0.00000 14.40180 m t
+n
+ 0.00000  3.60045 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+n
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+n
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 0.00000 -3.60045 l t
+ 0.00000 -14.40180 m t
+gsave c
+(30) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-0.00000 14.40180 m t
+n
+ 0.00000  3.60045 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+n
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+n
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 0.00000 -3.60045 l t
+ 0.00000 -14.40180 m t
+gsave c
+(40) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-0.00000 14.40180 m t
+n
+ 0.00000  3.60045 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+n
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+n
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 2.83500  0.00000 m t
+ 0.00000 -1.80023 l t
+ 0.00000  1.80023 m t
+ 0.00000 -3.60045 l t
+ 0.00000 -14.40180 m t
+gsave c
+(50) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-0.00000 14.40180 m t
+n
+ 0.00000  3.60045 m t
+-141.75000  0.00000 m t
+grestore
+gsave
+ 0.00000 141.75000 l t
+ 0.00000 -141.75000 m t
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(       0) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+ 3.60045  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+ 0.00000 11.81250 m t
+n
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(    2000) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+ 3.60045  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+n
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(    4000) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+ 3.60045  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(    6000) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+n
+ 3.60045  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(    8000) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+ 3.60045  0.00000 m t
+ 0.00000 11.81250 m t
+n
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(   10000) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+ 3.60045  0.00000 m t
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+n
+ 0.00000 11.81250 m t
+-1.80023  0.00000 l t
+ 1.80023  0.00000 m t
+-3.60045  0.00000 l t
+-3.60045 -3.60045 m t
+gsave c
+(   12000) dup stringwidth pop neg 0 rmoveto x
+grestore s
+ 3.60045  3.60045 m t
+ 3.60045  0.00000 m t
+ 0.00000 -141.75000 m t
+grestore
+70.87500 -32.40405 m t
+gsave c
+(Distance between sites (base pairs)) dup stringwidth pop neg 2 div 0 rmoveto x
+grestore s
+-70.87500 188.55585 m t
+c
+(Number of sites) x
+showpage
+grestore
+%%Trailer
+%%Pages: 1

@@ -1,0 +1,8 @@
+#!/bin/tcsh -f
+#(ie run the tshell on this but don't read the .cshrc or .tcshrc)
+
+echo version = 1.00 of mk 2005 Feb 5
+# 2005 Feb  5, 1.00: origin 
+
+l
+ps2pdf paper.ps

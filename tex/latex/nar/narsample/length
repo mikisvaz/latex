@@ -1,0 +1,13 @@
+echo 'length of paper'
+# echo '   lines:  WORDS:  chars:'
+untitle <paper.bbl>paper.b
+cat paper.tex paper.b note?.tex | unverb | notex | wc -w
+cat paper.tex paper.b note?.tex | unverb | notex | wc -w
+#
+#cat paper.tex paper.b note?.tex | unverb | untex | woco
+#cat paper.tex paper.b note?.tex | unverb | untex | woco
+#
+# cat paper.tex paper.bbl note?.tex | unverb | untex | wc
+# cat paper.tex paper.bbl note?.tex | unverb | untex | woco
+
+lab

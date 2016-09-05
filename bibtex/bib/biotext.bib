@@ -1,0 +1,699 @@
+% - Publication rate + Advances in research => Lit Mining interest
+% - HTE => lots of data => process for information => we actually need
+% knowledge.
+% - Knowledge of genes in literature
+% - >Genes and >Literuature => bottleneck
+% - IR, NLP, IE, TM.
+%
+% - Keywords: Lit Min. untapped potential, integrate multiple fields of
+% expertise
+% - Covers: Description of tasks in TM
+@article{shatkay2003mbl,
+    title     = {{Mining the Biomedical Literature in the Genomic Era: An Overview}},
+    author    = {Shatkay, H. and Feldman, R.},
+    journal   = {Journal of Computational Biology},
+    volume    = {10},
+    number    = {6},
+    pages     = {821--855},
+    year      = {2003},
+    publisher = {Mary Ann Liebert, Inc.},
+    abstract = {The past decade has seen a tremendous growth in the amount of
+experimental and computational biomedical data, specifically in the areas of
+genomics and proteomics. This growth is accompanied by an accelerated increase
+in the number of biomedical publications discussing the findings. In the last
+few years, there has been a lot of interest within the scientific com- munity
+in literature-mining tools to help sort through this abundance of literature
+and find the nuggets of information most relevant and useful for specific
+analysis tasks. This paper provides a road map to the various literature-mining
+methods, both in general and within bioinformatics. It surveys the disciplines
+involved in unstructured-text analysis, categorizes current work in biomedical
+literature mining with respect to these disciplines, and provides examples of
+text analysis methods applied towards meeting some of the current challenges in
+bioinformatics.  }
+}
+
+% What Text Data Mining really should be.
+% - Need to find new information
+% - Categorization is summarization not TDM, nor is Searching or
+% Exploratory analysis
+@article{hearst1999utd,
+    title            = {{Untangling text data mining}},
+    author           = {Hearst, M.A.},
+    journal          = {Proceedings of the 37th conference on Association for Computational Linguistics},
+    pages            = {3--10},
+    year             = {1999},
+    publisher        = {Association for Computational Linguistics Morristown, NJ, USA},
+    abstract         = {The possibilities for data mining from large text
+collections are virtually untapped. Text expresses a vast, rich range of
+information, but encodes this information in a form that is difficult to
+decipher automatically. Perhaps for this reason, there has been little work in
+text data mining to date, and most people who have talked about it have either
+conflated it with information access or have not made use of text directly to
+discover heretofore unknown information.
+
+            In this paper I will first define data mining, information access,
+and corpus-based computational linguistics, and then discuss the relationship
+of these to text data mining. The intent behind these contrasts is to draw
+attention to exciting new kinds of problems for computational linguists. I
+describe examples of what I consider to be real text data mining efforts and
+briefly outline recent ideas about how to pursue exploratory data analysis over
+text.}
+}
+
+
+% ORIGINAL
+@article{chagoyen2006dsf,
+    author    = {Chagoyen, M. and Carmona-Saez, P. and Shatkay, H. and Carazo, J.M. and Pascual-Montano, A.},
+    title     = {Discovering semantic features in the literature: a foundation for building functional associations},
+    journal   = {BMC Bioinformatics},
+    volume    = {7},
+    year      = {2006},
+    pages     = {41},
+    ee        = {http://dx.doi.org/10.1186/1471-2105-7-41},
+    bibsource = {DBLP, http://dblp.uni-trier.de},
+    abstract  = { Background: Experimental techniques such as DNA microarray,
+serial analysis of gene expression (SAGE) and mass spectrometry proteomics,
+among others, are generating large amounts of data related to genes and
+proteins at different levels. As in any other experimental approach, it is
+necessary to analyze these data in the context of previously known information
+about the biological entities under study. The literature is a particularly
+valuable source of information for experiment validation and interpretation.
+Therefore, the development of automated text mining tools to assist in such
+interpretation is one of the main challenges in current bioinformatics
+research.  
+
+Results: We present a method to create literature profiles for large sets of
+genes or proteins based on common semantic features extracted from a corpus of
+relevant documents. These profiles can be used to establish pair-wise
+similarities among genes, utilized in gene/protein classification or can be
+even combined with experimental measurements. Semantic features can be used by
+researchers to facilitate the understanding of the commonalities indicated by
+experimental results. Our approach is based on non-negative matrix
+factorization (NMF), a machine-learning algorithm for data analysis, capable of
+identifying local patterns that characterize a subset of the data. The
+literature is thus used to establish putative relationships among subsets of
+genes or proteins and to provide coherent justification for this clustering
+into subsets. We demonstrate the utility of the method by applying it to two
+independent and vastly different sets of genes.  
+
+Conclusion: The presented method can create literature profiles from documents
+relevant to sets of genes.  The representation of genes as additive linear
+combinations of semantic features allows for the exploration of functional
+associations as well as for clustering, suggesting a valuable methodology for
+the validation and interpretation of high-throughput experimental data.  } 
+
+}
+
+
+% Clustering of gene expression does not explain the mechanism. Discover
+% themes
+% - Documents are generated using Bernoulli distributions
+% 1. Assign a kernel document for each gene
+% 2. Find similar documents (20)
+% 3. Compare genes based of the literature corpuses: Gene mentions,
+%    compare text or compare summaries. Use second
+
+@article{shatkay2000gta,
+      title    = {{Genes, Themes and Microarrays}},
+      author   = {Shatkay, H. and Edwards, S. and Wilbur, W.J. and Boguski, M.},
+      journal  = {Eighth International Conference on Intelligent Systems for Molecular Biology},
+      pages    = {317--328},
+      year     = {2000},
+      abstract = {The immense volume of data resulting from DNA microarray
+experiments, accompanied by an increase in the number of publications
+discussing gene-related discoveries, presents a major data analysis
+challenge. Current methods for genome-wide analysis of expression data
+typically rely on cluster analysis of gene expression patterns. Clustering
+indeed reveals potentially meaningful relationships among genes, but can not
+explain the underlying biological mechanisms. In an attempt to address this
+problem, we have developed a new approach for utilizing the literature in order
+to establish functional relationships among genes on a genome-wide scale.  Our
+method is based on revealing coherent themes within the literature, using a
+similarity-based search in document space. Content-based relationships among,
+abstracts are then translated into functional connections among genes. We
+describe preliminary experiments applying our algorithm to a database of
+documents discussing yeast genes. A comparison of the produced results with
+well-established yeast gene functions demonstrates the effectiveness of our
+approach.}
+}
+
+
+% Coocurrencia de proteinas y palabra de interaccion. Como lo mio :(
+@article{blaschke1999aeb,
+      title   = {{Automatic extraction of biological information from scientific text: protein-protein interactions}},
+      author  = {Blaschke, C. and Andrade, M.A. and Ouzounis, C. and Valencia, A.},
+      journal = {Proc Int Conf Intell Syst Mol Biol},
+      volume  = {1999},
+      pages   = {60--67},
+      year    ={1999},
+      abstract = {We describe the basic design of a system for automatic
+detection of protein-protein interactions extracted from scientic abstracts. By
+restricting the problem domain and imposing a number of strong assumptions
+which include prespecied protein names and a limited set of verbs that
+represent actions, we show that it is possible to perform accurate information
+extraction. The performance of the system is evaluated with dierent cases of
+real world interaction networks, including the Drosophila cell cycle control.
+The results obtained computationally are in good agreement with current
+biological knowledge and demonstrate the feasibility of developing a fully
+automated system able to describe networks of protein interactions with sucient
+accuracy.  }
+}
+
+% Large scale protein-protein interaction network by coocurrence. No
+% interaction words. Relates genes to genes, and genes to terms. Also
+% superimposes expression data and calculate term importance.
+@article{jenssen2001lnh,
+      title    = {{A literature network of human genes for high-throughput analysis of gene expression}},
+      author   = {Jenssen, T.K. and L{\ae}greid, A. and Komorowski, J. and Hovig, E.},
+      journal  = {Nature Genetics},
+      volume   = {28},
+      pages    = {21--28},
+      year     = {2001},
+      abstract = {We have carried out automated extraction of explicit and
+implicit biomedical knowledge from publicly available gene and text databases
+to create a gene-to-gene co-citation network for 13,712 named human genes by
+automated analysis of titles and abstracts in over 10 million MEDLINE records.
+The associations between genes have been annotated by linking genes to terms
+from the medical subject heading (MeSH) index and terms from the gene ontology
+(GO) database. The extracted database and accompanying web tools for
+gene-expression analysis have collectively been named 'PubGene'. We validated
+the extracted networks by three large-scale experiments showing that
+co-occurrence reflects biologically meaningful relationships, thus providing an
+approach to extract and structure known biology. We validated the applicability
+of the tools by analyzing two publicly available microarray data sets.}
+}
+
+% Help curation by ranking PubMed search results. Uses a classifier
+@misc{dobrokhotov2003cna,
+      title     = {{Combining NLP and probabilistic categorisation for document and term selection for Swiss-Prot medical annotation}},
+      author    = {Dobrokhotov, P.B. and Goutte, C. and Veuthey, A.L. and Gaussier, E.},
+      journal   = {Bioinformatics},
+      volume    = {19},
+      number    = {90001},
+      pages     = {91--94},
+      year      = {2003},
+      publisher = {Oxford Univ Press},
+      abstract  = {Motivation: Searching relevant publications for manual
+database annotation is a tedious task. In this paper, we apply a combination of
+Natural Language Processing (NLP) and probabilistic classification to rerank
+documents returned by PubMed according to their relevance to Swiss-Prot
+annotation, and to identify significant terms in the documents.  Results: With
+a Probabilistic Latent Categoriser (PLC) we obtained 69% recall and 59%
+precision for relevant documents in a representative query. As the PLC
+technique provides the relative contribution of each term to the final document
+score, we used the Kullback-Leibler symmetric divergence to determine the
+most discriminating words for Swiss-Prot medical annotation. This information
+should allow curators to understand classification results better.  It also has
+great value for finetuning the linguistic pre-processing of documents, which
+in turn can improve the overall classifier performance.  Availability: The
+medical annotation dataset is available from the authors upon request}
+
+}
+
+% Network based on proteins. To explore literature.
+% Information in biology is based on genes, basic unit of information.
+% In particular associations.
+% - Gene name identification based in dictionary. High Precision.
+%
+@article{hoffmann2005iic,
+      title     = {{Implementing the iHOP concept for navigation of biomedical literature}},
+      author    = {Hoffmann, R. and Valencia, A.},
+      journal   = {Bioinformatics},
+      volume    = {21},
+      number    = {90002},
+      year      = {2005},
+      publisher = {Oxford Univ Press},
+      abstract  = {Not available}
+
+}
+
+
+
+% Finding cellular locations in text using HMM
+@phdthesis{leek1997ieu,
+      title  = {{Information Extraction Using Hidden Markov Models}},
+      author = {Leek, T.R.},
+      year   = {1997},
+      school ={UNIVERSITY OF CALIFORNIA, SAN DIEGO}
+}
+
+
+
+% Clustering of gene terms
+@article{chaussabel2002mme,
+    title     = {{Mining microarray expression data by literature profiling}},
+    author    = {Chaussabel, D. and Sher, A.},
+    journal   = {Genome Biology},
+    volume    = {3},
+    number    = {10},
+    pages     = {1--0055},
+    year      = {2002},
+    abstract  = {
+        
+Background
+    
+    The rapidly expanding fields of genomics and proteomics have prompted the
+development of computational methods for managing, analyzing and visualizing
+expression data derived from microarray screening. Nevertheless, the lack of
+efficient techniques for assessing the biological implications of
+gene-expression data remains an important obstacle in exploiting this
+information.  
+
+Results
+    
+    To address this need, we have developed a mining technique based on the
+analysis of literature profiles generated by extracting the frequencies of
+certain terms from thousands of abstracts stored in the Medline literature
+database. Terms are then filtered on the basis of both repetitive occurrence
+and co-occurrence among multiple gene entries. Finally, clustering analysis is
+performed on the retained frequency values, shaping a coherent picture of the
+functional relationship among large and heterogeneous lists of genes. Such data
+treatment also provides information on the nature and pertinence of the
+associations that were formed.  
+
+Conclusions
+    
+    The analysis of patterns of term occurrence in abstracts constitutes a
+means of exploring the biological significance of large and heterogeneous lists
+of genes. This approach should contribute to optimizing the exploitation of
+microarray technologies by providing investigators with an interface between
+complex expression data and large literature resources.  }
+}
+
+
+% Coocurrance of concepts (genes and others)
+@article{jelier2005cob,
+    title     = {{Co-occurrence based meta-analysis of scientific texts: retrieving biological relationships between genes}},
+    author    = {Jelier, R. and Jenster, G. and Dorssers, LCJ and van der Eijk, CC and van Mulligen, EM and Mons, B. and Kors, JA},
+    journal   = {Bioinformatics},
+    volume    = {21},
+    number    = {9},
+    pages     = {2049--2058},
+    year      = {2005},
+    publisher = {Oxford Univ Press},
+    abstract  = {Motivation: The advent of high-throughput experiments in
+    molecular biology creates a need for methods to efficiently extract and use
+information for large numbers of genes. Recently, the associative concept space
+(ACS) has been developed for the representation of information extracted from
+biomedical literature. The ACS is a Euclidean space in which thesaurus concepts
+are positioned and the distances between concepts indicates their relatedness.
+The ACS uses co-occurrence of concepts as a source of information. In this
+paper we evaluate how well the system can retrieve functionally related genes
+and we compare its performance with a simple gene co-occurrence method.
+    
+    Results: To assess the performance of the ACS we composed a test set of
+five groups of functionally related genes. With the ACS good scores were
+obtained for four of the five groups. When compared to the gene co-occurrence
+method, the ACS is capable of revealing more functional biological relations
+and can achieve results with less literature available per gene. Hierarchical
+clustering was performed on the ACS output, as a potential aid to users, and
+was found to provide useful clusters. Our results suggest that the algorithm
+can be of value for researchers studying large numbers of genes.}
+
+}
+
+% Relationships between genes based on a network of cooccurrences. Ranks
+% cohesiveness
+@article{wren2004sra,
+    title     = {{Shared relationship analysis: ranking set cohesion and commonalities within a literature-derived relationship network}},
+    author    = {Wren, J.D. and Garner, H.R.},
+    journal   = {Bioinformatics},
+    volume    = {20},
+    number    = {2},
+    pages     = {191--198},
+    year      = {2004},
+    publisher = {Oxford Univ Press},
+    abstract = {Motivation: There is a general scientific need to be able to
+identify and evaluate what any given set of 'objects' (e.g. genes, phenotypes,
+chemicals, diseases) has in common. Whether it is to classify, expand upon or
+identify commonalities and functional groupings, informational needs can be
+diverse and the best source to identify relationships among a potentially
+heterogeneous set of objects is the scientific literature.
+    
+    Results: We first establish a network of related objects by their
+co-occurrence within MEDLINE records. A set of objects within this network can
+then be queried to identify shared relationships, and a method is presented to
+score their statistical relevance by comparing observed frequencies with what
+would be expected in a random network model. Using Gene Ontology (GO)
+categories, we demonstrate that this method enables a quantitative ranking of
+the 'cohesiveness' of a set of objects and, importantly, allows other objects
+related to this set to be identified and evaluated for their 'cohesion' to it.}
+}
+
+% Describe genes and gene clusters by extracting terms, sentences and
+% relevant abstracts.
+@article{blaschke2001mfi,
+    title     = {{Mining functional information associated with expression arrays}},
+    author    = {Blaschke, C. and Oliveros, J.C. and Valencia, A.},
+    journal   = {Functional \& Integrative Genomics},
+    volume    = {1},
+    number    = {4},
+    pages     = {256--268},
+    year      = {2001},
+    publisher = {Springer},
+    abstract = {Abstract.   Deciphering the networks of interactions between
+molecules in biological systems has gained momentum with the monitoring of gene
+expression patterns at the genomic scale. Expression array experiments provide
+vast amounts of experimental data about these networks, the analysis of which
+requires new computational methods. In particular, issues related to the
+extraction of biological information are key for the end users. We propose here
+a strategy, implemented in a system called GEISHA (gene expression information
+system for human analysis) and able to detect biological terms significantly
+associated to different gene expression clusters by mining collections of
+Medline abstracts. GEISHA is based on a comparison of the frequency of
+abstracts linked to different gene clusters and containing a given term.
+Interpretation by the end user of the biological meaning of the terms is
+facilitated by embedding them in the corresponding significant sentences and
+abstracts and by establishing relations with other, equally significant terms.
+The information provided by GEISHA for the available yeast expression data
+compares favorably with the functional annotations provided by human experts,
+demonstrating the potential value of GEISHA as an assistant for the analysis of
+expression array experiments.}
+}
+
+% Cluster genes and assign bi-grams. Compares expression with
+% literature, reports cohesive groups.
+% - More sensitive and more specific than GO terms
+@article{kuffner2005ekw,
+    title     = {{Expert knowledge without the expert: integrated analysis of gene expression and literature to derive active functional contexts}},
+    author    = {K{\"u}ffner, R. and Fundel, K. and Zimmer, R.},
+    journal   = {Bioinformatics},
+    volume    = {21},
+    number    = {90002},
+    year      = {2005},
+    publisher = {Oxford Univ Press},
+    abstract  = {Results: We present an algorithm to simultaneously derive
+interpretations of expression measurements together with biological hypotheses
+from biomedical publications. It identifies active functional contexts
+('concepts'), i.e. gene clusters that exhibit both a significant gene
+expression as well as a coherent literature profile. Manual intervention by an
+expert in specifying prior knowledge is not required. The approach scales to
+realistic applications and does not rely on controlled vocabularies or pathway
+resources.
+    
+    We validated our algorithm by analyzing a current juvenile arthritis
+dataset. A number of gene clusters and accompanying literature topics are
+identified as an interpretation of the data that coincide well with the
+phenotype and biological processes known to be involved in the disease. We
+demonstrate that generated clusters are both more sensitive and more specific
+than Gene Ontology categories detected on the same data. The method allows for
+in-depth investigation of subsets of genes, the associated literature topics
+and publications.}
+}
+
+% Stablish how functionally coherent a group of genes is based on
+% comparing the literature.
+@article{raychaudhuri2002uta,
+    title     = {{Using Text Analysis to Identify Functionally Coherent Gene Groups}},
+    author    = {Raychaudhuri, S. and Sch{\"u}tze, H. and Altman, R.B.},
+    journal   = {Genome Research},
+    volume    = {12},
+    number    = {10},
+    pages     = {1582--1590},
+    year      = {2002},
+    publisher = {Cold Spring Harbor Lab},
+    abstract  = {The analysis of large-scale genomic information (such as
+sequence data or expression patterns) frequently involves grouping genes on the
+basis of common experimental features. Often, as with gene expression
+clustering, there are too many groups to easily identify the functionally
+relevant ones. One valuable source of information about gene function is the
+published literature. We present a method, neighbor divergence, for assessing
+whether the genes within a group share a common biological function based on
+their associated scientific literature. The method uses statistical natural
+language processing techniques to interpret biological text. It requires only a
+corpus of documents relevant to the genes being studied (e.g., all genes in an
+organism) and an index connecting the documents to appropriate genes. Given a
+group of genes, neighbor divergence assigns a numerical score indicating how
+``functionally coherent'' the gene group is from the perspective of the
+published literature. We evaluate our method by testing its ability to
+distinguish 19 known functional gene groups from 1900 randomly assembled
+groups. Neighbor divergence achieves 79% sensitivity at 100% specificity,
+comparing favorably to other tested methods. We also apply neighbor divergence
+to previously published gene expression clusters to assess its ability to
+recognize gene groups that had been manually identified as representative of a
+common function.}
+}
+
+
+
+% NO SOURCE
+@article{glenisson2002evs,
+    title     = {{Evaluation Of the Vector Space Representation In Text-Based Gene Clustering}},
+    author    = {Glenisson, P. and Antal, P. and Mathys, J. and Moreau, Y. and De Moor, B.},
+    journal   = {Biocomputing 2003},
+    year      = {2002},
+    publisher = {World Scientific}
+}
+
+
+
+% Clustering of genes using LSI
+@article{homayouni2005gcl,
+    title     = {{Gene clustering by Latent Semantic Indexing of MEDLINE abstracts}},
+    author    = {Homayouni, R. and Heinrich, K. and Wei, L. and Berry, M.W.},
+    journal   = {Bioinformatics},
+    volume    = {21},
+    number    = {1},
+    pages     = {104--115},
+    year      = {2005},
+    publisher = {Oxford Univ Press},
+    abstract = { Motivation: A major challenge in the interpretation of
+high-throughput genomic data is understanding the functional associations
+between genes. Previously, several approaches have been described to extract
+gene relationships from various biological databases using term-matching
+methods. However, more flexible automated methods are needed to identify
+functional relationships (both explicit and implicit) between genes from the
+biomedical literature. In this study, we explored the utility of Latent
+Semantic Indexing (LSI), a vector space model for information retrieval, to
+automatically identify conceptual gene relationships from titles and abstracts
+in MEDLINE citations.
+    
+    Results: We found that LSI identified gene-to-gene and keyword-to-gene
+relationships with high average precision. In addition, LSI identified implicit
+gene relationships based on word usage patterns in the gene abstract documents.
+Finally, we demonstrate here that pairwise distances derived from the vector
+angles of gene abstract documents can be effectively used to functionally group
+genes by hierarchical clustering. Our results provide proof-of-principle that
+LSI is a robust automated method to elucidate both known (explicit) and unknown
+(implicit) gene relationships from the biomedical literature. These features
+make LSI particularly useful for the analysis of novel associations discovered
+in genomic experiments.
+    
+    Availability: The 50-gene document collection used in this study can be
+interactively queried at http://shad.cs.utk.edu/sgo/sgo.html}
+}
+
+
+% Use of NMF to cluster genes into meta-genes. 
+@article{brunet2004mam,
+    title     = {{Metagenes and molecular pattern discovery using matrix factorization}},
+    author    = {Brunet, J.P. and Tamayo, P. and Golub, T.R. and Mesirov, J.P.},
+    journal   = {Proceedings of the National Academy of Sciences},
+    volume    = {101},
+    number    = {12},
+    pages     = {4164},
+    year      = {2004},
+    publisher = {National Acad Sciences},
+    abstract = {We describe here the use of nonnegative matrix factorization
+(NMF), an algorithm based on decomposition by parts that can reduce the
+dimension of expression data from thousands of genes to a handful of metagenes.
+Coupled with a model selection mechanism, adapted to work for any stochastic
+clustering algorithm, NMF is an efficient method for identification of distinct
+molecular patterns and provides a powerful method for class discovery. We
+demonstrate the ability of NMF to recover meaningful biological information
+from cancer-related microarray data. NMF appears to have advantages over other
+methods such as hierarchical clustering or self-organizing maps. We found it
+less sensitive to a priori selection of genes or initial conditions and able to
+detect alternative or context-dependent patterns of gene expression in complex
+biological systems. This ability, similar to semantic polysemy in text,
+provides a general method for robust molecular pattern discovery.}
+}
+
+@article{pascualmontano2006bvt,
+    title     = {{bioNMF: a versatile tool for non-negative matrix factorization in biology.}},
+    author    = {Pascual-Montano, A. and Carmona-Saez, P. and Chagoyen, M. and Tirado, F. and Carazo, J.M. and Pascual-Marqui, R.D.},
+    journal   = {BMC Bioinformatics},
+    volume    = {7},
+    number    = {1},
+    pages     = {366},
+    year      = {2006},
+    publisher = {BioMed Central}
+}
+
+
+
+
+% UPDATE data
+% Generates a hirarchical clustering and evaluates it
+% - Comparison between several NMF alternatives
+% - Unclear evaluation of labels
+@article{heinrich2008gene,
+      title     = {{Gene tree labeling using nonnegative matrix factorization on biomedical literature}},
+      author    = {Heinrich, K.E. and Berry, M.W. and Homayouni, R.},
+      journal   = {Computational Intelligence and Neuroscience},
+      volume    = {2008},
+      pages     = {276535},
+      year      = {2008},
+      publisher ={Hindawi Publishing Corporation, 410 Park Avenue, 15 th Floor,\# 287 pmb, New York, NY, 10022, USA,}
+      abstract = {Identifying functional groups of genes is a challenging problem
+for biological applications.  Text mining approaches can be used to build
+hierarchical clusters or trees from the information in the biological
+literature. In particular, the nonnegative matrix factorization (NMF) is exam-
+ined as one approach to label hierarchical trees. A generic labeling algorithm
+as well as an evaluation technique are proposed, and the effects of different
+NMF parameters with regard to convergence and labeling accuracy are discussed.
+The primary goals of this study are to provide a qualitative assessment of the
+NMF and its various parameters and initialization, to provide an automated way
+to classify biomedical data, and to provide a method for evaluating labeled
+data assuming a static input tree. As a byproduct, a method for generating gold
+standard trees is proposed.}
+    
+}
+
+@phdthesis{kiritchenko2005htc,
+      title  = {{Hierarchical Text Categorization and Its Application to Bioinformatics}},
+      author = {Kiritchenko, S.},
+      year   = {2005},
+      school ={University of Ottawa}
+}
+
+
+% our experiments showed that when the bigram penetration
+% level is too high, effectiveness may decrease, and it is easy to
+% conjecture that this is due to the elimination of informative unigrams
+% on the part of bigrams that partly duplicate the information carried
+% by existing unigrams.  
+@article{caropreso2001lie,
+      title     = {{A learner-independent evaluation of the usefulness of statistical phrases for automated text categorization}},
+      author    = {Caropreso, M.F. and Matwin, S. and Sebastiani, F.},
+      journal   = {Text Databases and Document Management: Theory and Practice},
+      pages     = {78--102},
+      year      = {2001},
+      publisher = {Idea Group Publishing},
+      abstract  ={In this work we investigate the usefulness of n-grams for
+document indexing in text categorization (TC). We call n-gram a set gk of n
+word stems, and we say that gk occurs in a document dj when a sequence of words
+appears in dj that, after stop word removal and stemming, consists exactly of
+the n stems in gk , in some order. Previous researches have investigated the
+use of n-grams (or some variant of them) in the context of specific learning
+algorithms, and thus have not obtained general answers on their usefulness for
+TC. In this work we investigate the usefulness of n-grams in TC independently
+of any specific learning algorithm. We do so by applying feature selection to
+the pool of all k-grams (k <= n), and checking how many n-grams score high
+enough to be selected in the top a k-grams. We report the results of our
+experiments, using various feature selec- tion measures and varying values of
+a, performed on the Reuters-21578 standard TC benchmark. We also report
+results of making actual use of the selected n-grams in the context of a linear
+classifier induced by means of the Rocchio method.  }
+}
+
+
+@article{frijters2008clb,
+      title     = {{CoPub: a literature-based keyword enrichment tool for microarray data analysis}},
+      author    = {Frijters, R. and Heupers, B. and van Beek, P. and Bouwhuis, M. and van Schaik, R. and de Vlieg, J. and Polman, J. and Alkema, W.},
+      journal   = {Nucleic Acids Research},
+      volume    = {36},
+      number    = {Web Server issue},
+      pages     = {W406},
+      year      = {2008},
+      publisher ={Oxford Univ Press}
+}
+
+@article{huang2008gsp,
+      title    = {{GenCLiP: a software program for clustering gene lists by literature profiling and constructing gene co-occurrence networks related to custom keywords}},
+      author   = {Huang, Z.X. and Tian, H.Y. and Hu, Z.F. and Zhou, Y.B. and Zhao, J. and Yao, K.T.},
+      journal  = {BMC Bioinformatics},
+      volume   = {9},
+      number   = {1},
+      pages    = {308},
+      year     = {2008}
+      abstract = {
+          
+                        Background
+      
+      Biomedical researchers often want to explore pathogenesis and pathways
+regulated by abnormally expressed genes, such as those identified by microarray
+analyses. Literature mining is an important way to assist in this task. Many
+literature mining tools are now available. However, few of them allows the user
+to make manual adjustments to zero in on what he/she wants to know in
+particular.  
+
+                        Results
+      
+      We present our software program, GenCLiP (Gene Cluster with Literature
+Profiles), which is based on the methods presented by Chaussabel and Sher
+(Genome Biol 2002, 3(10):RESEARCH0055) that search gene lists to identify
+functional clusters of genes based on up-to-date literature profiling. Four
+features were added to this previously described method: the ability to 1)
+manually curate keywords extracted from the literature, 2) search genes and
+gene co-occurrence networks related to custom keywords, 3) compare analyzed
+gene results with negative and positive controls generated by GenCLiP, and 4)
+calculate probabilities that the resulting genes and gene networks are randomly
+related. In this paper, we show with a set of differentially expressed genes
+between keloids and normal control, how implementation of functions in GenCLiP
+successfully identified keywords related to the pathogenesis of keloids and
+unknown gene pathways involved in the pathogenesis of keloids.  
+                         
+                         Conclusion
+      
+      With regard to the identification of disease-susceptibility genes,
+GenCLiP allows one to quickly acquire a primary pathogenesis profile and
+identify pathways involving abnormally expressed genes not previously
+associated with the disease.}
+
+}
+
+
+@article{cheng2008polysearch,
+      title     = {{PolySearch: a web-based text mining system for extracting relationships between human diseases, genes, mutations, drugs and metabolites}},
+      author    = {Cheng, D. and Knox, C. and Young, N. and Stothard, P. and Damaraju, S. and Wishart, D.S.},
+      journal   = {Nucleic Acids Research},
+      volume    = {36},
+      number    = {Web Server issue},
+      pages     = {W399},
+      year      = {2008},
+      publisher ={Oxford University Press}
+}
+
+@article{tjioe2008using,
+      title     = {{Using a literature-based NMF model for discovering gene functional relationships}},
+      author    = {Tjioe, E. and Berry, M. and Homayouni, R. and Heinrich, K. and Gu, W. and Gerling, I. and Jiao, Y. and Gao, P. and Xiong, Q. and Ware, Z.S. and others},
+      journal   = {BMC Bioinformatics},
+      volume    = {9},
+      number    = {Suppl 7},
+      pages     = {P1},
+      year      = {2008},
+      publisher ={BioMed Central Ltd}
+}
+
+@conference{mitchell2003gene,
+      title        = {{Gene indexing: characterization and analysis of NLM’s GeneRIFs}},
+      author       = {Mitchell, J.A. and Aronson, A.R. and Mork, J.G. and Folk, L.C. and Humphrey, S.M. and Ward, J.M.},
+      booktitle    = {AMIA\ldots Annual Symposium proceedings [electronic resource]},
+      volume       = {2003},
+      pages        = {460},
+      year         = {2003},
+      organization ={American Medical Informatics Association}
+}
+
+@article{boutsidis2008svd,
+      title   = {{SVD based initialization: A head start for nonnegative matrix factorization}},
+      author  = {Boutsidis, C. and Gallopoulos, E.},
+      journal = {Pattern Recognition},
+      volume  = {41},
+      number  = {4},
+      pages   = {1350--1362},
+      year    ={2008}
+}
+
+@article{wild2004improving,
+      title     = {{Improving non-negative matrix factorizations through structured initialization}},
+      author    = {Wild, S. and Curry, J. and Dougherty, A.},
+      journal   = {Pattern Recognition},
+      volume    = {37},
+      number    = {11},
+      pages     = {2217--2232},
+      year      = {2004},
+      publisher ={Elsevier}
+}
+
